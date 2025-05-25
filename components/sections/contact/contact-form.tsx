@@ -10,9 +10,11 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/hooks/use-toast"
+import { useLanguageContext } from "@/hooks/useLanguage"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { t } = useLanguageContext();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -22,8 +24,8 @@ export function ContactForm() {
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
     toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
+      title: t('contact.success.title'),
+      description: t('contact.success.description'),
     })
 
     setIsSubmitting(false)
@@ -37,23 +39,23 @@ export function ContactForm() {
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-gray-300">
-                Name
+                {t('contact.name')}
               </Label>
               <Input
                 id="name"
-                placeholder="Your name"
+                placeholder={t('contact.name.placeholder')}
                 required
                 className="border-gray-600 bg-white/10 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500"
               />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email" className="text-gray-300">
-                Email
+                {t('contact.email')}
               </Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="your.email@example.com"
+                placeholder={t('contact.email.placeholder')}
                 required
                 className="border-gray-600 bg-white/10 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500"
               />
@@ -62,11 +64,11 @@ export function ContactForm() {
 
           <div className="space-y-2">
             <Label htmlFor="subject" className="text-gray-300">
-              Subject
+              {t('contact.subject')}
             </Label>
             <Input
               id="subject"
-              placeholder="What's this about?"
+              placeholder={t('contact.subject.placeholder')}
               required
               className="border-gray-600 bg-white/10 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500"
             />
@@ -74,11 +76,11 @@ export function ContactForm() {
 
           <div className="space-y-2">
             <Label htmlFor="message" className="text-gray-300">
-              Message
+              {t('contact.message')}
             </Label>
             <Textarea
               id="message"
-              placeholder="Tell me about your project..."
+              placeholder={t('contact.message.placeholder')}
               required
               className="min-h-32 border-gray-600 bg-white/10 text-white placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500"
             />
@@ -89,7 +91,7 @@ export function ContactForm() {
             disabled={isSubmitting}
             className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white hover:from-cyan-600 hover:to-purple-600 disabled:opacity-50"
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
+            {isSubmitting ? t('contact.sending') : t('contact.send')}
             <Send className="ml-2 h-4 w-4" />
           </Button>
         </form>

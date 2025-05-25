@@ -1,14 +1,17 @@
 import { HexagonalSkills } from "@/components/sections/skills/hexagonal-skills"
 import { SectionHeading } from "@/components/shared/section-heading"
 import { skillsData } from "@/data/skills-data"
+import { useLanguageContext } from "@/hooks/useLanguage"
 
 export function SkillsSection() {
+  const { t } = useLanguageContext();
+
   return (
     <>
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          title="Skills & Technologies"
-          description="Technologies I work with to bring ideas to life"
+          title={t('skills.title')}
+          description={t('skills.description')}
         />
 
         <div className="mt-16">

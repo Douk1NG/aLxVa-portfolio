@@ -6,12 +6,15 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import type { Project } from "@/types/project"
+import { useLanguageContext } from "@/hooks/useLanguage"
 
 interface ProjectCardProps {
   project: Project
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const { t } = useLanguageContext();
+
   return (
     <Card className="border-gray-700 bg-white/5 backdrop-blur-sm transition-all hover:bg-white/10">
       <CardContent className="p-6">
@@ -35,7 +38,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               onClick={() => window.open(project.github, "_blank")}
             >
               <Github className="mr-2 h-4 w-4" />
-              Code
+              {t('projects.code')}
             </Button>
             <Button
               size="sm"
@@ -43,7 +46,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               onClick={() => window.open(project.demo, "_blank")}
             >
               <ExternalLink className="mr-2 h-4 w-4" />
-              Demo
+              {t('projects.demo')}
             </Button>
           </div>
         </div>

@@ -1,14 +1,15 @@
-"use client"
-
 import { ArrowDown, User, Briefcase, Code, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguageContext } from "@/hooks/useLanguage"
 
 export function QuickNav() {
+  const { t } = useLanguageContext();
+
   const quickLinks = [
-    { name: "Skills", href: "#skills", icon: Code },
-    { name: "Experience", href: "#experience", icon: Briefcase },
-    { name: "Projects", href: "#projects", icon: User },
-    { name: "Contact", href: "#contact", icon: Mail },
+    { name: t('nav.skills'), href: "#skills", icon: Code },
+    { name: t('nav.experience'), href: "#experience", icon: Briefcase },
+    { name: t('nav.projects'), href: "#projects", icon: User },
+    { name: t('nav.contact'), href: "#contact", icon: Mail },
   ]
 
   const scrollToSection = (href: string) => {
@@ -38,7 +39,7 @@ export function QuickNav() {
 
       {/* Scroll Down Indicator */}
       <div className="flex flex-col items-center space-y-2 text-gray-400">
-        <span className="text-sm">Explore more</span>
+        <span className="text-sm">{t('nav.explore')}</span>
         <ArrowDown className="h-5 w-5 animate-bounce" />
       </div>
     </div>

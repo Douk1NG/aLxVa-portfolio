@@ -1,5 +1,5 @@
 import { Section } from "@/types/section"
-
+import LanguageSwitcher from "@/components/shared/LanguageSwitcher"
 export default function Main({sections}: {sections: Section[]}) {
     return (
         <main className="flex-1 overflow-auto">
@@ -13,6 +13,7 @@ export default function Main({sections}: {sections: Section[]}) {
             {section.component}
           </section>
         ))}
+        <LanguageSwitcher />
       </main>
     )
 }
