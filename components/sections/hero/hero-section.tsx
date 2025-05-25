@@ -1,12 +1,18 @@
 import { ProfileImage } from "@/components/sections/hero/profile-image"
 import { QuickNav } from "@/components/sections/hero/quick-nav"
 import { useLanguageContext } from "@/hooks/useLanguage"
+import PillLanguageSwitcher from "@/components/shared/PillLanguageSwitcher"
 
 export function HeroSection() {
   const { t } = useLanguageContext();
 
   return (
-    <div className="space-y-8">
+    <div className="flex flex-col space-y-8">
+      {/* Language Switcher */}
+      <div className="hidden md:block self-end">
+        <PillLanguageSwitcher />
+      </div>
+
       <ProfileImage />
 
       <div className="space-y-6">

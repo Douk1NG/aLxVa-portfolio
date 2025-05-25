@@ -1,5 +1,6 @@
 import { Section } from "@/types/section";
 import useActiveSection from "@/hooks/useActiveSection";
+import { useLanguageContext } from "@/hooks/useLanguage";
 
 interface TaskbarProps {
   sections: Section[];
@@ -7,6 +8,7 @@ interface TaskbarProps {
 
 export function Taskbar({ sections }: TaskbarProps) {
   const activeSection = useActiveSection();
+  const { t } = useLanguageContext();
 
   return (
     <nav className="hidden md:flex w-24 bg-slate-800/30 backdrop-blur-sm flex-col justify-center border-l border-slate-700/20">
@@ -29,7 +31,7 @@ export function Taskbar({ sections }: TaskbarProps) {
               ${activeSection === section.id
                 ? 'text-white'
                 : 'text-slate-400 group-hover:text-slate-200'}`}>
-              {section.label}
+              {t(`nav.${section.id}`)}
             </span>
           </a>
         ))}
