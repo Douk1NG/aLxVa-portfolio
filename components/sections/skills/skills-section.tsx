@@ -4,7 +4,7 @@ import { skillsData } from "@/data/skills-data"
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="px-4 py-20 sm:px-6 lg:px-8">
+    <>
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="Skills & Technologies"
@@ -15,6 +15,6 @@ export function SkillsSection() {
           <HexagonalSkills skills={skillsData} />
         </div>
       </div>
-    </section>
+    </>
   )
 }

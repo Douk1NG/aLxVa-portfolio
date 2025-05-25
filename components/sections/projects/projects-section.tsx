@@ -4,7 +4,7 @@ import { projectsData } from "@/data/projects-data"
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="px-4 py-20 sm:px-6 lg:px-8">
+    <>
       <div className="mx-auto max-w-7xl">
         <SectionHeading title="Featured Projects" description="Some of my recent work and side projects" />
 
@@ -14,6 +14,6 @@ export function ProjectsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </>
   )
 }

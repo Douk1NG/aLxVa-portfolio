@@ -4,7 +4,7 @@ import { SocialLinks } from "@/components/sections/contact/social-links"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="px-4 py-20 sm:px-6 lg:px-8">
+    <>
       <div className="mx-auto max-w-3xl">
         <SectionHeading title="Get In Touch" description="Let's discuss your next project or just say hello" />
 
@@ -16,6 +16,6 @@ export function ContactSection() {
           <SocialLinks />
         </div>
       </div>
-    </section>
+    </>
   )
 }

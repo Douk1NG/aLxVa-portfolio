@@ -4,7 +4,7 @@ import { experienceData } from "@/data/experience-data"
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="px-4 py-20 sm:px-6 lg:px-8">
+    <>
       <div className="mx-auto max-w-7xl">
         <SectionHeading title="Work Experience" description="My professional journey and key achievements" />
 
@@ -14,6 +14,6 @@ export function ExperienceSection() {
           ))}
         </div>
       </div>
-    </section>
+    </>
   )
 }
