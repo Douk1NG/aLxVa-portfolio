@@ -56,7 +56,7 @@ export default function Header(
                 />
               ))}
             </ul>
-            
+
             {/* Settings */}
             <div className="mt-8 px-4 space-y-4">
               <LanguageSwitcher />

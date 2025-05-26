@@ -1,7 +1,11 @@
 import { MenuItemProps } from "@/types/menu";
 import { useLanguageContext } from "@/hooks/useLanguage";
 
-export function MenuItem({ section, onClose, currentSection }: MenuItemProps) {
+export function MenuItem({
+  section,
+  onClose,
+  currentSection,
+}: MenuItemProps) {
   const isActive = currentSection === section.id;
   const { t } = useLanguageContext();
 
