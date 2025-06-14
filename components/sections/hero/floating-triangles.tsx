@@ -1,5 +1,4 @@
-import { useFloatingTriangles } from "@/hooks/useFloatingTriangles"
-import { Triangle } from "@/types/triangle"
+import { useFloatingTriangles, type Triangle } from "@/hooks/useFloatingTriangles"
 
 export default function FloatingTriangles() {
   const triangles = useFloatingTriangles()

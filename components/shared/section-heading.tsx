@@ -1,7 +1,16 @@
-interface SectionHeadingProps {
-  title: string
-  description?: string
-}
+import { type ReactNode } from 'react';
+
+/**
+ * Props for the SectionHeading component
+ */
+export type SectionHeadingProps = {
+  /** Section title */
+  title: string;
+  /** Optional subtitle */
+  subtitle?: string;
+  /** Optional icon */
+  icon?: ReactNode;
+};
 
 export function SectionHeading({ title }: SectionHeadingProps) {
   return (

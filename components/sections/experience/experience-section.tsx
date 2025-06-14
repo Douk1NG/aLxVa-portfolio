@@ -11,7 +11,6 @@ export function ExperienceSection() {
       <div className="flex flex-col space-y-8">
         <SectionHeading
           title={t('experience.title')}
-          description={t('experience.description')}
         />
 
         <div className="mt-12 space-y-8">

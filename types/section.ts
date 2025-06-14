@@ -2,7 +2,10 @@ import { ReactNode } from 'react';
 
 export type SectionName = 'about' | 'experience' | 'projects' | 'skills' | 'contact';
 
-export interface Section {
+/**
+ * Section configuration type
+ */
+export type Section = {
   id: SectionName;
   label: string;
   icon: ReactNode;

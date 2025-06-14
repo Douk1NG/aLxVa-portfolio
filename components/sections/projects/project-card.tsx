@@ -8,9 +8,12 @@ import { Badge } from "@/components/ui/badge"
 import type { Project } from "@/types/project"
 import { useLanguageContext } from "@/hooks/useLanguage"
 
-export interface ProjectCardProps {
-  project: Project
-}
+/**
+ * Props for the ProjectCard component
+ */
+export type ProjectCardProps = {
+  project: Project;
+};
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { t } = useLanguageContext();

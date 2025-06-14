@@ -1,10 +1,14 @@
-import { Section } from "@/types/section";
+import { type Section } from "@/types/section";
 import useActiveSection from "@/hooks/useActiveSection";
 import { useLanguageContext } from "@/hooks/useLanguage";
 
-interface TaskbarProps {
+/**
+ * Props for the Taskbar component
+ */
+export type TaskbarProps = {
+  /** List of sections to display in the taskbar */
   sections: Section[];
-}
+};
 
 export function Taskbar({ sections }: TaskbarProps) {
   const activeSection = useActiveSection();

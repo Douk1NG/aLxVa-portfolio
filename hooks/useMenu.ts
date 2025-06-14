@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import useIntersectionObserver from './useIntersectionObserver';
-import { SectionName } from '@/types/section';
+import { type SectionName } from '@/types/section';
 
 /**
  * Return type for the useMenu hook
  */
-interface UseMenuReturn {
+export type UseMenuReturn = {
   /** Whether the menu is currently open */
   isOpen: boolean;
   /** Ref to the menu element for click outside detection */
@@ -18,7 +18,7 @@ interface UseMenuReturn {
   toggleMenu: () => void;
   /** Currently active section in the viewport */
   currentSection: SectionName | '';
-}
+};
 
 /**
  * Hook to manage mobile menu state and functionality

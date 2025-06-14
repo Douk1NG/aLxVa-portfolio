@@ -11,7 +11,7 @@ export function ProjectsSection() {
       <div className="flex flex-col space-y-8">
         <SectionHeading
           title={t('projects.title')}
-          description={t('projects.description')}
+          subtitle={t('projects.description')}
         />
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">

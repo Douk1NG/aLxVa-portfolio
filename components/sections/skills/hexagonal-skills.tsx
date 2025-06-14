@@ -1,29 +1,18 @@
 "use client"
 import * as LucideIcons from "lucide-react"
-import type { Skill } from "@/types/skills"
+import type { Skill, SkillCategory } from "@/types/skills"
 import { LucideIcon } from "lucide-react"
 import { useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
-// Group skills by group property
-type GroupedSkills = Record<string, Skill[]>
+type GroupedSkills = Record<SkillCategory, Skill[]>
 
 function groupSkills(skills: Skill[]): GroupedSkills {
   return skills.reduce((acc, skill) => {
-    acc[skill.group] = acc[skill.group] || []
-    acc[skill.group].push(skill)
+    acc[skill.category] = acc[skill.category] || []
+    acc[skill.category].push(skill)
     return acc
   }, {} as GroupedSkills)
-}
-
-function groupBySubcategory(skills: Skill[]) {
-  return skills.reduce((acc, skill) => {
-    if (skill.subcategory) {
-      acc[skill.subcategory] = acc[skill.subcategory] || []
-      acc[skill.subcategory].push(skill)
-    }
-    return acc
-  }, {} as Record<string, Skill[]>)
 }
 
 function SkillLevelLegend() {
@@ -49,61 +38,26 @@ function SkillLevelLegend() {
   )
 }
 
-function SkillBadge({ skill, showLevel }: { skill: Skill; showLevel: boolean }) {
+function SkillBadge({ skill }: { skill: Skill }) {
   const Icon = LucideIcons[skill.icon as keyof typeof LucideIcons] as LucideIcon
   return (
     <div
       key={skill.name}
-      className="inline-flex items-center gap-2 bg-muted hover:bg-muted/80 px-3 py-1.5 rounded-full transition-colors relative"
+      className="inline-flex items-center gap-2 bg-muted hover:bg-muted/80 px-3 py-1.5 rounded-full transition-colors"
     >
       <Icon className="text-primary" size={16} />
       <span className="text-sm text-muted-foreground">{skill.name}</span>
-      {showLevel && (
-        <div className={`absolute -right-1 -top-1 w-2 h-2 rounded-full
-          ${skill.level === 'expert' ? 'bg-green-500' :
-            skill.level === 'advanced' ? 'bg-blue-500' :
-            skill.level === 'intermediate' ? 'bg-yellow-500' : 'bg-gray-500'}`}
-        />
-      )}
-    </div>
-  )
-}
-
-function FrontendSkills({ skills }: { skills: Skill[] }) {
-  const subcategorized = groupBySubcategory(skills)
-  return (
-    <div className="space-y-4">
-      {Object.entries(subcategorized).map(([subcategory, subcategorySkills]) => (
-        <div key={subcategory}>
-          <h4 className="text-sm font-semibold text-muted-foreground mb-2">{subcategory}</h4>
-          <div className="flex flex-wrap gap-2">
-            {subcategorySkills.map((skill) => (
-              <SkillBadge key={skill.name} skill={skill} showLevel={true} />
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function RegularSkills({ skills, showLevel }: { skills: Skill[]; showLevel: boolean }) {
-  return (
-    <div className="flex flex-wrap gap-2 h-full items-start">
-      {skills.map((skill) => (
-        <SkillBadge key={skill.name} skill={skill} showLevel={showLevel} />
-      ))}
     </div>
   )
 }
 
 function SkillCard({
-  group,
+  category,
   skills,
   isExpanded,
   onToggle
 }: {
-  group: string
+  category: SkillCategory
   skills: Skill[]
   isExpanded: boolean
   onToggle: () => void
@@ -115,7 +69,7 @@ function SkillCard({
         className="w-full flex items-center justify-between group"
       >
         <h3 className="text-xl font-bold text-primary group-hover:text-primary/80 transition-colors">
-          {group}
+          {category}
         </h3>
         {isExpanded ? (
           <ChevronUp className="text-muted-foreground group-hover:text-primary transition-colors" />
@@ -125,15 +79,10 @@ function SkillCard({
       </button>
 
       {isExpanded && (
-        <div className="mt-4">
-          {group === "Frontend Development" ? (
-            <FrontendSkills skills={skills} />
-          ) : (
-            <RegularSkills
-              skills={skills}
-              showLevel={group !== "Soft Skills"}
-            />
-          )}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <SkillBadge key={skill.name} skill={skill} />
+          ))}
         </div>
       )}
     </div>
@@ -142,21 +91,20 @@ function SkillCard({
 
 function HexagonalSkills({ skills }: { skills: Skill[] }) {
   const grouped = groupSkills(skills)
-  // Initialize with all groups expanded
-  const [expandedGroups, setExpandedGroups] = useState<string[]>(
-    Object.keys(grouped)
+  const [expandedCategories, setExpandedCategories] = useState<SkillCategory[]>(
+    Object.keys(grouped) as SkillCategory[]
   )
 
-  const toggleGroup = (group: string) => {
-    setExpandedGroups(prev =>
-      prev.includes(group)
-        ? prev.filter(g => g !== group)
-        : [...prev, group]
+  const toggleCategory = (category: SkillCategory) => {
+    setExpandedCategories(prev =>
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
     )
   }
 
   // Split items into two columns
-  const items = Object.entries(grouped)
+  const items = Object.entries(grouped) as [SkillCategory, Skill[]][]
   const midpoint = Math.ceil(items.length / 2)
   const leftColumn = items.slice(0, midpoint)
   const rightColumn = items.slice(midpoint)
@@ -166,24 +114,24 @@ function HexagonalSkills({ skills }: { skills: Skill[] }) {
       <SkillLevelLegend />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-6">
-          {leftColumn.map(([group, groupSkills]) => (
+          {leftColumn.map(([category, categorySkills]) => (
             <SkillCard
-              key={group}
-              group={group}
-              skills={groupSkills}
-              isExpanded={expandedGroups.includes(group)}
-              onToggle={() => toggleGroup(group)}
+              key={category}
+              category={category}
+              skills={categorySkills}
+              isExpanded={expandedCategories.includes(category)}
+              onToggle={() => toggleCategory(category)}
             />
           ))}
         </div>
         <div className="space-y-6">
-          {rightColumn.map(([group, groupSkills]) => (
+          {rightColumn.map(([category, categorySkills]) => (
             <SkillCard
-              key={group}
-              group={group}
-              skills={groupSkills}
-              isExpanded={expandedGroups.includes(group)}
-              onToggle={() => toggleGroup(group)}
+              key={category}
+              category={category}
+              skills={categorySkills}
+              isExpanded={expandedCategories.includes(category)}
+              onToggle={() => toggleCategory(category)}
             />
           ))}
         </div>
