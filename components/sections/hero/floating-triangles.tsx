@@ -1,11 +1,12 @@
 import { useFloatingTriangles } from "@/hooks/useFloatingTriangles"
+import { Triangle } from "@/types/triangle"
 
 export default function FloatingTriangles() {
-  const triangles = useFloatingTriangles(6)
+  const triangles = useFloatingTriangles()
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {triangles.map((triangle) => (
+      {triangles.map((triangle: Triangle) => (
         <div
           key={triangle.id}
           className="absolute"
@@ -35,4 +36,4 @@ export default function FloatingTriangles() {
       ))}
     </div>
   )
-} 
+}

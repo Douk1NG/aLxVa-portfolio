@@ -1,16 +1,36 @@
 import { useState, useEffect } from 'react'
+import { Triangle } from '@/types/triangle'
 
-interface Triangle {
-  id: number
-  x: number
-  y: number
-  size: number
-  rotation: number
-  speed: number
-  opacity: number
-}
+/**
+ * Configuration constants for triangle animation
+ */
+const TRIANGLE_CONFIG = {
+  MIN_SIZE: 80,
+  MAX_SIZE: 120,
+  MIN_SPEED: 0.1,
+  MAX_SPEED: 0.3,
+  MIN_OPACITY: 0.03,
+  MAX_OPACITY: 0.08,
+} as const
 
-export const useFloatingTriangles = (count: number = 8) => {
+/**
+ * Hook to create and animate floating triangles in the background
+ * @param count - Number of triangles to create (default: 8)
+ * @returns Array of triangle objects with their current positions and properties
+ * @example
+ * ```tsx
+ * const triangles = useFloatingTriangles(10);
+ * 
+ * return (
+ *   <div>
+ *     {triangles.map(triangle => (
+ *       <Triangle key={triangle.id} {...triangle} />
+ *     ))}
+ *   </div>
+ * );
+ * ```
+ */
+export const useFloatingTriangles = (count: number = 8): Triangle[] => {
   const [triangles, setTriangles] = useState<Triangle[]>([])
 
   useEffect(() => {
@@ -19,10 +39,10 @@ export const useFloatingTriangles = (count: number = 8) => {
       id: i,
       x: Math.random() * 100, // percentage
       y: Math.random() * 100, // percentage
-      size: Math.random() * (120 - 80) + 80, // between 80 and 120 (larger triangles)
+      size: Math.random() * (TRIANGLE_CONFIG.MAX_SIZE - TRIANGLE_CONFIG.MIN_SIZE) + TRIANGLE_CONFIG.MIN_SIZE,
       rotation: Math.random() * 360,
-      speed: Math.random() * (0.3 - 0.1) + 0.1, // between 0.1 and 0.3 (slower movement)
-      opacity: Math.random() * (0.08 - 0.03) + 0.03 // between 0.03 and 0.08 (more subtle)
+      speed: Math.random() * (TRIANGLE_CONFIG.MAX_SPEED - TRIANGLE_CONFIG.MIN_SPEED) + TRIANGLE_CONFIG.MIN_SPEED,
+      opacity: Math.random() * (TRIANGLE_CONFIG.MAX_OPACITY - TRIANGLE_CONFIG.MIN_OPACITY) + TRIANGLE_CONFIG.MIN_OPACITY
     }))
 
     setTriangles(initialTriangles)
