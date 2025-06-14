@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         {/* Left Column - Photo, Title and Description */}
         <div className="space-y-6">
-          <div className="flex flex-col gap-4 items-center md:items-start">
+          <div className="flex flex-col gap-4 items-center md:items-start mt-4">
             <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight drop-shadow-glow`}>
               {t('hero.greeting')}
             </h1>
