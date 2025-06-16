@@ -18,27 +18,27 @@ export type InfoTag = {
 export const infoTags: InfoTag[] = [
   {
     icon: Code2,
-    titleKey: 'info.code.title',
-    descriptionKey: 'info.code.description'
+    titleKey: 'hero.role',
+    descriptionKey: 'hero.role.description'
   },
   {
     icon: MapPin,
-    titleKey: 'info.location.title',
-    descriptionKey: 'info.location.description'
+    titleKey: 'hero.location',
+    descriptionKey: 'hero.location.description'
   },
   {
     icon: Github,
-    titleKey: 'info.github.title',
-    descriptionKey: 'info.github.description'
+    titleKey: 'hero.github',
+    descriptionKey: 'hero.github.description'
   },
   {
     icon: Linkedin,
-    titleKey: 'info.linkedin.title',
-    descriptionKey: 'info.linkedin.description'
+    titleKey: 'hero.linkedin',
+    descriptionKey: 'hero.linkedin.description'
   },
   {
     icon: FileDown,
-    titleKey: 'info.resume.title',
-    descriptionKey: 'info.resume.description'
+    titleKey: 'hero.download',
+    descriptionKey: 'hero.download.description'
   }
-] 
+]
