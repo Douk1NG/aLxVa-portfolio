@@ -17,7 +17,7 @@ const translations: Translations = {
     'hero.role': 'Software Engineer',
     'hero.role.description': 'Passionate about clean code',
     'hero.location': 'Medellín, CO',
-    'hero.location.description': 'Based in Colombia',
+    'hero.location.description': 'Location',
     'hero.github': 'GitHub',
     'hero.github.description': 'Check out my projects',
     'hero.linkedin': 'LinkedIn',
@@ -74,7 +74,7 @@ const translations: Translations = {
     'hero.role': 'Ingeniero de Software',
     'hero.role.description': 'Apasionado por el código limpio',
     'hero.location': 'Medellín, CO',
-    'hero.location.description': 'Basado en Colombia',
+    'hero.location.description': 'Ubicación',
     'hero.github': 'GitHub',
     'hero.github.description': 'Mira mis proyectos',
     'hero.linkedin': 'LinkedIn',
@@ -117,4 +117,4 @@ const translations: Translations = {
   },
 };
 
-export default translations; 
+export default translations;

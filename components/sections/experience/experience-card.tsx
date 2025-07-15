@@ -2,9 +2,12 @@ import { Calendar, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import type { Experience } from "@/types/experience"
 
-interface ExperienceCardProps {
-  experience: Experience
-}
+/**
+ * Props for the ExperienceCard component
+ */
+export type ExperienceCardProps = {
+  experience: Experience;
+};
 
 export function ExperienceCard({ experience }: ExperienceCardProps) {
   return (

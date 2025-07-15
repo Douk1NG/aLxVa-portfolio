@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Triangle } from '@/types/triangle'
+import { type Triangle } from '@/types/triangle'
+
+export type { Triangle }
 
 /**
  * Configuration constants for triangle animation

@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes'
 /**
  * Return type for the useHeartColor hook
  */
-interface HeartColorReturn {
+export type HeartColorReturn = {
   /** Heart emoji that changes based on the current theme */
   heart: '🖤' | '🤍';
 }

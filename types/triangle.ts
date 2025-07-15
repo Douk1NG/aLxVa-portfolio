@@ -1,7 +1,7 @@
 /**
  * Properties of a single floating triangle
  */
-export interface Triangle {
+export type Triangle = {
   /** Unique identifier for the triangle */
   id: number;
   /** Horizontal position as a percentage (0-100) */

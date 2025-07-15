@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
-import { SectionName } from '@/types/section';
+import { type SectionName } from '@/types/section';
 
-interface UseIntersectionObserverProps {
+/**
+ * Props for the intersection observer hook
+ */
+export type UseIntersectionObserverProps = {
   /** The threshold value between 0 and 1 that triggers the intersection */
   threshold?: number;
   /** The margin around the root element */
   rootMargin?: string;
-}
+};
 
 /**
  * Hook to observe section elements in the viewport and return the active section ID

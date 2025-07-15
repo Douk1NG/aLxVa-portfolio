@@ -11,7 +11,7 @@ export function ContactSection() {
       <div className="flex flex-col space-y-8">
         <SectionHeading
           title={t('contact.title')}
-          description={t('contact.description')}
+          subtitle={t('contact.description')}
         />
 
         <div className="mt-12 space-y-8">

@@ -1,4 +1,4 @@
-export type SkillLevel = "expert" | "advanced" | "intermediate" | "basic"
+export type SkillLevel = 'expert' | 'advanced' | 'intermediate' | 'basic';
 
 export type FrontendSubcategory = 
   | "UI Frameworks"
@@ -15,10 +15,31 @@ export type SkillGroup =
   | "Tools & Workflow"
   | "Soft Skills"
 
-export interface Skill {
-  name: string
-  level: SkillLevel
-  icon: string
-  group: string
-  subcategory?: string
-}
+/**
+ * Available skill categories
+ */
+export type SkillCategory =
+  | "languages"
+  | "frontend"
+  | "backend"
+  | "database"
+  | "devops"
+  | "tools";
+
+/**
+ * Skill entry type
+ */
+export type Skill = {
+  /** Skill name */
+  name: string;
+  /** Icon identifier */
+  icon: string;
+  /** Main category */
+  category: SkillCategory;
+  /** Skill group */
+  group: string;
+  /** Optional subcategory */
+  subcategory?: string;
+  /** Skill proficiency level */
+  level: SkillLevel;
+};
