@@ -11,7 +11,7 @@ export type ExperienceCardProps = {
 
 export function ExperienceCard({ experience }: ExperienceCardProps) {
   return (
-    <Card className="border-border bg-card/20 backdrop-blur-sm">
+    <Card className=" bg-card/20 backdrop-blur-sm">
       <CardContent className="p-6">
         <div className="grid gap-4 md:grid-cols-3">
           <div className="md:col-span-2">

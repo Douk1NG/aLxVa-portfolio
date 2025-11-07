@@ -12,22 +12,25 @@ import { SectionName } from '@/types/section';
  * ```
  */
 const useActiveSection = (defaultSection: SectionName = 'about'): SectionName => {
-  const [activeSection, setActiveSection] = useState<SectionName>(defaultSection);
+  const [activeSection, setActiveSection] = useState<SectionName>(() => {
+    // Inicializar con el hash actual o el default
+    if (typeof window !== 'undefined') {
+      return (window.location.hash.slice(1) || defaultSection) as SectionName;
+    }
+    return defaultSection;
+  });
+
   const intersectingSection = useIntersectionObserver({ threshold: 0.5 });
 
+  // Manejar cambios de hash
   useEffect(() => {
     const handleHashChange = () => {
       const hash = (window.location.hash.slice(1) || defaultSection) as SectionName;
       setActiveSection(hash);
     };
 
-    // Set initial active section
-    handleHashChange();
-
-    // Add event listeners
     window.addEventListener('hashchange', handleHashChange);
-    
-    // Cleanup
+
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
@@ -37,13 +40,19 @@ const useActiveSection = (defaultSection: SectionName = 'about'): SectionName =>
   useEffect(() => {
     if (intersectingSection) {
       const section = intersectingSection as SectionName;
-      setActiveSection(section);
-      // Update URL hash without triggering scroll
-      window.history.replaceState(null, '', `#${section}`);
+
+      // Usar setTimeout para evitar setState síncrono
+      const timer = setTimeout(() => {
+        setActiveSection(section);
+        // Update URL hash without triggering scroll
+        window.history.replaceState(null, '', `#${section}`);
+      }, 0);
+
+      return () => clearTimeout(timer);
     }
   }, [intersectingSection]);
 
   return activeSection;
 };
 
-export default useActiveSection; 
+export default useActiveSection;

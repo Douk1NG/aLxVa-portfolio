@@ -10,7 +10,11 @@ export default function MenuThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
   if (!mounted) {
@@ -23,7 +27,7 @@ export default function MenuThemeToggle() {
     <Button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       variant="outline"
-      className="w-full bg-secondary/50 hover:bg-secondary/80 text-primary border-border"
+      className="w-full bg-secondary/50 hover:bg-secondary/80 text-primary"
     >
       {theme === 'dark' ? (
         <Moon className="w-4 h-4 mr-2" />
@@ -33,4 +37,4 @@ export default function MenuThemeToggle() {
       {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
     </Button>
   );
-} 
+}

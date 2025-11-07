@@ -9,5 +9,5 @@ const es: Translation = {
     'skills.description': 'Tecnologías con las que trabajo para dar vida a las ideas'
 }
 
-
-export default { en, es };
+const skillsTranslations = { en, es };
+export default skillsTranslations;

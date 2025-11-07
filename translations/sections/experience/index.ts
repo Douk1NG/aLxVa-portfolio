@@ -9,5 +9,5 @@ const es: Translation = {
     'experience.description': 'Mi trayectoria profesional y logros principales'
 }
 
-
-export default { en, es };
+const experienceTranslations = { en, es };
+export default experienceTranslations;

@@ -15,7 +15,7 @@ export function Taskbar({ sections }: TaskbarProps) {
   const { t } = useLanguageContext();
 
   return (
-    <nav className="hidden md:flex w-24 bg-background border-l border-border flex-col justify-center">
+    <nav className="hidden md:flex w-24 bg-background border-l  flex-col justify-center">
       <div className="flex flex-col items-center justify-around h-full">
         {sections.map((section) => (
           <a

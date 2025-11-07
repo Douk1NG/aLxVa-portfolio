@@ -34,5 +34,3 @@ export type LanguageSwitcherReturn = {
   toggleLanguage: () => void;
   t: (key: string) => string;
 };
-
-export default {}; 

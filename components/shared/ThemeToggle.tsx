@@ -10,19 +10,23 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
   if (!mounted) {
     return (
-      <div className="inline-flex items-center rounded-full border border-border bg-secondary/50 p-1 backdrop-blur-sm shadow-lg">
+      <div className="inline-flex items-center rounded-full border  bg-secondary/50 p-1 backdrop-blur-sm shadow-lg">
         <div className="h-9 w-9 animate-pulse bg-muted rounded-full" />
       </div>
     );
   }
 
   return (
-    <div className="inline-flex items-center rounded-full border border-border bg-secondary/50 p-1 backdrop-blur-sm shadow-lg">
+    <div className="inline-flex items-center rounded-full border  bg-secondary/50 p-1 backdrop-blur-sm shadow-lg">
       <Button
         variant="ghost"
         size="sm"

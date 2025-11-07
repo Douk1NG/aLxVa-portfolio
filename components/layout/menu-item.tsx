@@ -13,7 +13,7 @@ export function MenuItem({
     <li className="w-full">
       <a
         href={`#${section.id}`}
-        className={`w-full px-4 py-6 flex items-center gap-4 text-lg border-b border-border rounded-sm
+        className={`w-full px-4 py-6 flex items-center gap-4 text-lg border-b  rounded-sm
           ${isActive
             ? 'bg-primary/10 text-primary font-semibold shadow-sm'
             : 'bg-background text-secondary-foreground hover:bg-secondary hover:text-primary'}

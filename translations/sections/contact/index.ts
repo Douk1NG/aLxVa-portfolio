@@ -33,5 +33,5 @@ const es:Translation = {
     'contact.success.description': 'Gracias por contactarme. Te responderé pronto.',
 }
 
-
-export default { en, es};
+const contactTranslations = { en, es };
+export default contactTranslations;

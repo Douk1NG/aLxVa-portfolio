@@ -21,4 +21,5 @@ const es:Translation = {
 }
 
 
-export default { en, es};
+const navigationTranslations = { en, es };
+export default navigationTranslations;

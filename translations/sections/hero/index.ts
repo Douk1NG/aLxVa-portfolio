@@ -30,5 +30,5 @@ const es: Translation = {
     'hero.download.description': 'Obtén mi currículum'
 }
 
-
-export default { en, es };
+const heroTranslations = { en, es };
+export default heroTranslations;

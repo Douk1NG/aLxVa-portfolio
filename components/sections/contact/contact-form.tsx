@@ -33,7 +33,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="border-border bg-card/20 backdrop-blur-sm">
+    <Card className=" bg-card/20 backdrop-blur-sm">
       <CardContent className="p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid gap-6 sm:grid-cols-2">
@@ -45,7 +45,7 @@ export function ContactForm() {
                 id="name"
                 placeholder={t('contact.name.placeholder')}
                 required
-                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                className=" bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
               />
             </div>
             <div className="space-y-2">
@@ -57,7 +57,7 @@ export function ContactForm() {
                 type="email"
                 placeholder={t('contact.email.placeholder')}
                 required
-                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                className=" bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
               />
             </div>
           </div>
@@ -70,7 +70,7 @@ export function ContactForm() {
               id="subject"
               placeholder={t('contact.subject.placeholder')}
               required
-              className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+              className=" bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
             />
           </div>
 
@@ -82,7 +82,7 @@ export function ContactForm() {
               id="message"
               placeholder={t('contact.message.placeholder')}
               required
-              className="min-h-32 border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+              className="min-h-32  bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
             />
           </div>
 

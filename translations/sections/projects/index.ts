@@ -13,5 +13,5 @@ const es: Translation = {
     'projects.demo': 'Demo'
 }
 
-
-export default { en, es };
+const projectsTranslations = { en, es };
+export default projectsTranslations;

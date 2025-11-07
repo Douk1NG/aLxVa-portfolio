@@ -7,7 +7,7 @@ const PillLanguageSwitcher = () => {
   const { language, toggleLanguage } = useLanguageSwitcher();
 
   return (
-    <div className="inline-flex items-center rounded-full border border-border bg-secondary/30 p-1 backdrop-blur-sm shadow-lg">
+    <div className="inline-flex items-center rounded-full border  bg-secondary/30 p-1 backdrop-blur-sm shadow-lg">
       <Button
         variant="ghost"
         size="sm"
