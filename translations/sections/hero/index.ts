@@ -14,8 +14,7 @@ const en: Translation = {
     'hero.github.description': 'Check out my projects',
     'hero.linkedin': 'LinkedIn',
     'hero.linkedin.description': 'Connect with me',
-    'hero.download': 'Download CV',
-    'hero.download.description': 'Get my resume'
+    'hero.available': 'Available for work'
 }
 const es: Translation = {
     ...general,
@@ -26,8 +25,7 @@ const es: Translation = {
     'hero.github.description': 'Mira mis proyectos',
     'hero.linkedin': 'LinkedIn',
     'hero.linkedin.description': 'Conecta conmigo',
-    'hero.download': 'Descargar CV',
-    'hero.download.description': 'Obtén mi currículum'
+    'hero.available': 'Disponible para trabajar'
 }
 
 const heroTranslations = { en, es };

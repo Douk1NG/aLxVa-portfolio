@@ -1,4 +1,4 @@
-import { Code2, MapPin, Github, Linkedin, FileDown } from 'lucide-react'
+import { Code2, MapPin, Github, Linkedin } from 'lucide-react'
 import { type LucideIcon } from 'lucide-react'
 
 /**
@@ -31,11 +31,6 @@ export const infoTags: InfoTag[] = [
   {
     icon: Linkedin,
     titleKey: 'hero.linkedin',
-    href: '.'
-  },
-  {
-    icon: FileDown,
-    titleKey: 'hero.download',
     href: '.'
   }
 ]
