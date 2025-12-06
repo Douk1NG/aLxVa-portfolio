@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { SkillLevelLegend } from "./hexagonal/skill-level-legend"
+
 import { SkillCard } from "./hexagonal/skill-card"
 import type { SkillGroup } from "@/types/skills"
 import { skillsName } from "@/data/skills-data"
@@ -22,7 +22,6 @@ function HexagonalSkills({ skills }: { skills: SkillGroup[] }) {
 
   return (
     <div className="w-full max-w-[1400px] mx-auto">
-      <SkillLevelLegend />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-6">
           {leftColumn.map(([_i, group]) => (

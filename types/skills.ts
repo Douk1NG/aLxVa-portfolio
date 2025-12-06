@@ -1,5 +1,3 @@
-export type SkillLevel = 'expert' | 'advanced' | 'intermediate' | 'basic';
-
 export type SkillCategory =
   | "languages"
   | "frontend"
@@ -14,7 +12,6 @@ export type SkillCategory =
 export type SkillItem = {
   name: string;
   icon: string;
-  level?: SkillLevel;
   category: SkillCategory;
 };
 
