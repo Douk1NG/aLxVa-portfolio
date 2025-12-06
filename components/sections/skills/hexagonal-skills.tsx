@@ -1,19 +1,10 @@
-import { useState } from "react"
+
 
 import { SkillCard } from "./hexagonal/skill-card"
 import type { SkillGroup } from "@/types/skills"
-import { skillsName } from "@/data/skills-data"
 
 function HexagonalSkills({ skills }: { skills: SkillGroup[] }) {
-  const [expandedGroups, setExpandedGroups] = useState<string[]>(skillsName)
 
-  const toggleGroup = (group: string) => {
-    setExpandedGroups(prev =>
-      prev?.includes(group)
-        ? prev?.filter(g => g !== group)
-        : [...prev, group]
-    )
-  }
 
   const items = Object.entries(skills)
   const midpoint = Math.ceil(items.length / 2)
@@ -30,8 +21,7 @@ function HexagonalSkills({ skills }: { skills: SkillGroup[] }) {
               name={group.name}
               skills={group.skills}
               subcategories={group.subcategories}
-              isExpanded={expandedGroups.includes(group.name)}
-              onToggle={() => toggleGroup(group.name)}
+
             />
           ))}
         </div>
@@ -42,8 +32,7 @@ function HexagonalSkills({ skills }: { skills: SkillGroup[] }) {
               name={group.name}
               skills={group.skills}
               subcategories={group.subcategories}
-              isExpanded={expandedGroups.includes(group.name)}
-              onToggle={() => toggleGroup(group.name)}
+
             />
           ))}
         </div>
