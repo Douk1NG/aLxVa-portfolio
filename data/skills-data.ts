@@ -53,7 +53,6 @@ export const skillsData: SkillGroup[] = [
       { name: "Problem Solving", icon: "Brain", category: "tools" },
       { name: "Team Collaboration", icon: "Users", category: "tools" },
       { name: "Adaptability", icon: "Shuffle", category: "tools" },
-      { name: "Time Management", icon: "Clock", category: "tools" },
       { name: "Communication", icon: "MessageSquare", category: "tools" },
     ]
   }

@@ -11,7 +11,7 @@ export type SkillCategory =
  */
 export type SkillItem = {
   name: string;
-  icon: string;
+  icon: keyof typeof import("lucide-react");
   category: SkillCategory;
 };
 
