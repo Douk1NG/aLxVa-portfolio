@@ -1,3 +1,5 @@
+import type { LucideIconName } from "@/components/shared/Icon";
+
 export type SkillCategory =
   | "languages"
   | "frontend"
@@ -6,28 +8,15 @@ export type SkillCategory =
   | "devops"
   | "tools";
 
-/**
- * Individual skill item
- */
 export type SkillItem = {
   name: string;
-  icon: keyof typeof import("lucide-react");
+  icon: LucideIconName;
   category: SkillCategory;
 };
 
-/**
- * Subcategory of skills (e.g., "UI Frameworks")
- */
-export type SkillSubcategory = {
-  name: string;
-  skills: SkillItem[];
-};
-
-/**
- * Top-level skill group (e.g., "Frontend Development")
- */
 export type SkillGroup = {
   name: string;
-  skills?: SkillItem[];
-  subcategories?: SkillSubcategory[];
+  skills: SkillItem[];
+  variant?: "feature" | "vertical" | "wide" | "default";
+  icon: LucideIconName;
 };

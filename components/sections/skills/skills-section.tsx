@@ -1,4 +1,4 @@
-import HexagonalSkills from "@/components/sections/skills/hexagonal-skills"
+import BentoSkills from "@/components/sections/skills/bento-skills"
 import { SectionHeading } from "@/components/shared/section-heading"
 import { skillsData } from "@/data/skills-data"
 import { useLanguageContext } from "@/hooks/useLanguage"
@@ -11,7 +11,7 @@ export function SkillsSection() {
       <SectionHeading
         title={t('skills.title')}
       />
-      <HexagonalSkills skills={skillsData} />
+      <BentoSkills skills={skillsData} />
     </div>
   )
 }
