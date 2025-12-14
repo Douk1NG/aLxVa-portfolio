@@ -12,8 +12,10 @@ export function ExperienceSection() {
         <SectionHeading
           title={t('experience.title')}
         />
-
-        <div className="mt-12 space-y-8">
+        <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto">
+          {t('experience.description')}
+        </p>
+        <div className="space-y-8">
           {experienceData.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
           ))}

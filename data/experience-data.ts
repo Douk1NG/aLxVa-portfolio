@@ -2,27 +2,17 @@ import type { Experience } from "@/types/experience"
 
 export const experienceData: Experience[] = [
   {
-    title: "Senior Frontend Developer",
-    company: "Tech Corp",
-    period: "2022 - Present",
-    location: "San Francisco, CA",
-    description:
-      "Led development of modern web applications using React and Next.js. Improved performance by 40% and mentored junior developers.",
+    title: "exp.job1.title",
+    company: "Portada Inmobiliaria",
+    period: "exp.job1.period",
+    location: "exp.job1.loc",
+    description: "exp.job1.desc",
   },
   {
-    title: "Full Stack Developer",
-    company: "StartupXYZ",
-    period: "2020 - 2022",
-    location: "Remote",
-    description:
-      "Built scalable web applications from scratch. Worked with React, Node.js, and PostgreSQL to deliver high-quality products.",
-  },
-  {
-    title: "Frontend Developer",
-    company: "Digital Agency",
-    period: "2018 - 2020",
-    location: "New York, NY",
-    description:
-      "Developed responsive websites and web applications for various clients. Specialized in modern JavaScript frameworks.",
-  },
+    title: "exp.job2.title",
+    company: "Mántum",
+    period: "exp.job2.period",
+    location: "exp.job2.loc",
+    description: "exp.job2.desc",
+  }
 ]

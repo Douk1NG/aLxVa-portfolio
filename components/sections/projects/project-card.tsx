@@ -1,7 +1,7 @@
 "use client"
 
 import { ExternalLink } from "lucide-react"
-import { SiGithub as Github} from '@icons-pack/react-simple-icons';
+import { SiGithub as Github } from '@icons-pack/react-simple-icons';
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -22,8 +22,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Card className=" bg-card/5 backdrop-blur-sm transition-all hover:bg-card/10">
       <CardContent className="p-6">
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
-          <p className="text-muted-foreground">{project.description}</p>
+          <h3 className="text-xl font-semibold text-foreground">{t(project.title)}</h3>
+          <p className="text-muted-foreground">{t(project.description)}</p>
 
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech) => (
