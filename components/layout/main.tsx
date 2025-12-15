@@ -1,6 +1,6 @@
 import { Section } from "@/types/section"
 
-export default function Main({sections}: {sections: Section[]}) {
+export default function Main({ sections }: { sections: Section[] }) {
     return (
         <main className="flex-1 overflow-auto">
             {sections.map((section: Section) => (

@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased flex inset-0">
+      <body className="antialiased layout">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

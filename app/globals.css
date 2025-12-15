@@ -122,6 +122,44 @@ body {
   margin: 0;
 }
 
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "main sidebar"
+    "footer footer";
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "footer";
+  }
+}
+
+main {
+  grid-area: main;
+}
+
+header {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   background: transparent;

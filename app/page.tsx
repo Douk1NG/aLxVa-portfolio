@@ -1,23 +1,21 @@
 "use client"
 import { LanguageProvider } from "@/components/providers/language-provider";
-import { Taskbar } from "@/components/layout/taskbar"
+import { Sidebar } from "@/components/layout/sidebar"
+import { Footer } from "@/components/layout/footer"
 import { sections } from "@/config/sections"
 
 import Main from "@/components/layout/main"
-import Header from "@/components/layout/header"
 
 export default function Home() {
   return (
     <LanguageProvider>
-        <Header
-          sections={sections}
-        />
-        <Main
-          sections={sections}
-        />
-        <Taskbar
-          sections={sections}
-        />
+      <Main
+        sections={sections}
+      />
+      <Sidebar
+        sections={sections}
+      />
+      <Footer />
     </LanguageProvider>
   )
 }

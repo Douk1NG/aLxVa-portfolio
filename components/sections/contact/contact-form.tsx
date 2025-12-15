@@ -30,7 +30,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card className=" bg-card/20 backdrop-blur-sm">
+    <Card className="bg-card/20 backdrop-blur-sm md:mx-92">
       <CardContent className="p-8">
         <form onSubmit={submitForm} className="space-y-6">
           <div className="grid gap-6 sm:grid-cols-2">
@@ -83,7 +83,7 @@ export function ContactForm() {
               name="message"
               placeholder={t('contact.message.placeholder')}
               required
-              className="min-h-32  bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+              className="min-h-[35vh] bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
             />
           </div>
 
