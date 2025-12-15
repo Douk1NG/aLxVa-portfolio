@@ -83,7 +83,7 @@ export function ContactForm() {
               name="message"
               placeholder={t('contact.message.placeholder')}
               required
-              className="min-h-[35vh] bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+              className="min-h-32 md:min-h-[35vh] bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
             />
           </div>
 

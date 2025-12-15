@@ -14,7 +14,7 @@ export function ProjectsSection() {
           subtitle={t('projects.description')}
         />
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2">
           {projectsData.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

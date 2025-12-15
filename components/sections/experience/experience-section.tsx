@@ -15,7 +15,7 @@ export function ExperienceSection() {
         <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto">
           {t('experience.description')}
         </p>
-        <div className="space-y-8">
+        <div className="space-y-8 max-w-3xl mx-auto">
           {experienceData.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
           ))}
