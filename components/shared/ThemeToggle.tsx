@@ -31,11 +31,11 @@ export default function ThemeToggle() {
         variant="ghost"
         size="sm"
         onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-        className={`rounded-full w-9 h-9 flex items-center justify-center transition-all duration-300 ${
-          resolvedTheme === 'dark'
-            ? 'bg-secondary text-primary shadow-sm' 
-            : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-        }`}
+        className={`rounded-full w-9 h-9 flex items-center justify-center transition-all duration-300 ${resolvedTheme === 'dark'
+          ? 'bg-secondary text-primary shadow-sm'
+          : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+          }`}
+        title="theme toggle"
       >
         {resolvedTheme === 'dark' ? (
           <Moon className="h-4 w-4" />
