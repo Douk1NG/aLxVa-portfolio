@@ -22,9 +22,9 @@ export type UseIntersectionObserverProps = {
  * const activeSection = useIntersectionObserver({ threshold: 0.7 });
  * ```
  */
-const useIntersectionObserver = ({ 
-  threshold = 0.5, 
-  rootMargin = '0px' 
+const useIntersectionObserver = ({
+  threshold = 0.5,
+  rootMargin = '0px'
 }: UseIntersectionObserverProps = {}): SectionName | '' => {
   const [activeId, setActiveId] = useState<SectionName | ''>('');
 
@@ -43,12 +43,23 @@ const useIntersectionObserver = ({
       }
     );
 
-    // Only observe elements with the data-section attribute
-    const sections = document.querySelectorAll('[data-section]');
-    sections.forEach((section) => observer.observe(section));
+    const updateObservers = () => {
+      const sections = document.querySelectorAll('[data-section]');
+      sections.forEach((section) => observer.observe(section));
+    };
+
+    // Initial observation
+    updateObservers();
+
+    // Observe DOM changes to catch dynamically added sections
+    const mutationObserver = new MutationObserver(updateObservers);
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      mutationObserver.disconnect();
       observer.disconnect();
     };
   }, [threshold, rootMargin]);
