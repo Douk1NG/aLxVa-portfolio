@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { getAssetPath } from "@/lib/utils"
 import { useLanguageContext } from "@/hooks/useLanguage"
 
 export function HeroMobileHeader() {
@@ -20,7 +21,7 @@ export function HeroMobileHeader() {
                     <div className="absolute inset-0 bg-accent/10 rounded-full " />
                     <div className="relative h-full w-full rounded-full overflow-hidden border-2 drop-shadow-lg drop-shadow-cyan-500">
                         <Image
-                            src={"/mobile-avatar.webp"}
+                            src={getAssetPath("/mobile-avatar.webp")}
                             alt="Portrait of Dibey Valencia"
                             fill
                             className="object-cover"
