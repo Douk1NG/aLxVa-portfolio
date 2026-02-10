@@ -6,6 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "export": "next build && next export",
+    "serve:out": "npx serve -s out",
+    "deploy": "npm run export && gh-pages -d out -b gh-pages",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -29,9 +32,10 @@
     "@types/node": "^24.10.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "baseline-browser-mapping": "^2.9.9",
+    "baseline-browser-mapping": "^2.9.19",
     "eslint": "^9",
     "eslint-config-next": "^16.0.1",
+    "gh-pages": "^5.0.0",
     "postcss": "^8",
     "tailwindcss": "^4.1.17",
     "typescript": "^5"

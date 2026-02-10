@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: '/aLxVa-portfolio',
+  assetPrefix: '/aLxVa-portfolio/',
+  trailingSlash: true,
 };
 
 export default nextConfig;
