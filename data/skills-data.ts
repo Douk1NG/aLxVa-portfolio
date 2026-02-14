@@ -12,6 +12,10 @@ export const skillsData: SkillGroup[] = [
       { name: "Tailwind", icon: "Wind", category: "frontend" },
       { name: "CSS3", icon: "Paintbrush", category: "frontend" },
       { name: "Zod", icon: "Shield", category: "frontend" },
+      { name: "TypeScript", icon: "Shield", category: "frontend" },
+      { name: "JavaScript", icon: "Shield", category: "frontend" },
+      { name: "HTML5", icon: "Shield", category: "frontend" },
+      { name: "Zustand", icon: "Stamp", category: "frontend" },
     ]
   },
   {

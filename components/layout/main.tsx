@@ -12,7 +12,7 @@ export default function Main() {
 
     const containerClasses = mounted
         ? `flex-1 ${!isMobile ? 'snap-container' : 'overflow-hidden h-screen md:h-auto md:overflow-auto'}`
-        : 'flex-1 snap-container'; // Match server snapshot (isMobile=false)
+        : 'flex-1 snap-container';
 
     if (!mounted) {
         return <MainSkeleton className={containerClasses} />

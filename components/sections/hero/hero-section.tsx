@@ -11,10 +11,10 @@ export function HeroSection() {
   const isMobile = useMediaQuery("(max-width: 768px)")
 
   return (
-    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+    <div className="relative px-4 sm:px-6 lg:px-8">
       <HeroActions />
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center pt-16">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
 
         <div className="md:col-span-7 space-y-6 md:space-y-8">
           {!isMobile ? <HeroDesktopHeader /> : <HeroMobileHeader />}

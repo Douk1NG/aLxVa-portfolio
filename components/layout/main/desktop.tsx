@@ -13,7 +13,7 @@ export function DesktopMain({ sections }: { sections: Section[] }) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="container mx-auto p-8 space-y-32 min-h-screen flex flex-col justify-center snap-section"
+                    className="container mx-auto space-y-32 min-h-screen flex flex-col justify-center snap-section"
                 >
                     {section.component}
                 </motion.section>
