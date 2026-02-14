@@ -9,7 +9,8 @@
     "export": "next build && next export",
     "serve:out": "npx serve -s out",
     "deploy": "npm run export && gh-pages -d out -b gh-pages",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "vitest run"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.8.0",
@@ -20,6 +21,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.34.0",
     "lucide-react": "^0.553.0",
     "next": "^16.0.1",
     "next-themes": "^0.4.6",
@@ -29,15 +31,20 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^24.10.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^5.1.4",
     "baseline-browser-mapping": "^2.9.19",
     "eslint": "^9",
     "eslint-config-next": "^16.0.1",
     "gh-pages": "^5.0.0",
+    "jsdom": "^28.0.0",
     "postcss": "^8",
     "tailwindcss": "^4.1.17",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.0.18"
   }
 }

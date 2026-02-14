@@ -10,12 +10,16 @@ export default function Main() {
     const isMobile = useMediaQuery("(max-width: 768px)")
     const mounted = useMounted()
 
+    const containerClasses = mounted
+        ? `flex-1 ${!isMobile ? 'snap-container' : 'overflow-hidden h-screen md:h-auto md:overflow-auto'}`
+        : 'flex-1 snap-container'; // Match server snapshot (isMobile=false)
+
     if (!mounted) {
-        return <MainSkeleton />
+        return <MainSkeleton className={containerClasses} />
     }
 
     return (
-        <main className="flex-1 overflow-hidden h-screen md:h-auto md:overflow-auto">
+        <main className={containerClasses}>
             {isMobile ? <MobileMain sections={sections} /> : <DesktopMain sections={sections} />}
         </main>
     )

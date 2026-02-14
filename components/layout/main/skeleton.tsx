@@ -1,6 +1,6 @@
-export function MainSkeleton() {
+export function MainSkeleton({ className }: { className?: string }) {
     return (
-        <div className="container mx-auto p-8 space-y-12 animate-pulse min-h-screen">
+        <main className={`${className} container mx-auto p-8 space-y-12 animate-pulse min-h-screen`}>
 
             <div className="space-y-4">
                 <div className="h-12 bg-muted rounded w-3/4 md:w-1/2"></div>
@@ -16,6 +16,6 @@ export function MainSkeleton() {
                     </div>
                 ))}
             </div>
-        </div>
+        </main>
     )
 }

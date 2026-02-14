@@ -1,17 +1,22 @@
 import { Section } from "@/types/section"
+import { motion } from "framer-motion"
 
 export function DesktopMain({ sections }: { sections: Section[] }) {
     return (
         <>
             {sections.map((section: Section) => (
-                <section
+                <motion.section
                     key={section.id}
                     id={section.id}
                     data-section
-                    className="container mx-auto p-8 space-y-32 min-h-screen"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="container mx-auto p-8 space-y-32 min-h-screen flex flex-col justify-center snap-section"
                 >
                     {section.component}
-                </section>
+                </motion.section>
             ))}
         </>
     )

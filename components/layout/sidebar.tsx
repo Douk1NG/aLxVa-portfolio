@@ -20,11 +20,11 @@ export function Sidebar() {
     <aside className="flex">
       <nav
         className={`
-          flex w-full md:w-24 bg-background border-l flex-col justify-center 
+          flex w-full md:w-24 glass border-l flex-col justify-center 
           md:my-0 md:mx-0
           ${isMobile
             ? 'fixed top-0 left-0 right-0 z-50 border-b border-l-0 h-16 px-4 shadow-md'
-            : 'mt-4 mx-1'}
+            : 'mt-4 mx-1 rounded-2xl'}
         `}
       >
         <div className="flex md:flex-col md:items-center justify-between md:justify-around h-full">
@@ -41,16 +41,16 @@ export function Sidebar() {
               className="flex flex-col items-center justify-center relative group no-underline mt-2 md:mt-0"
             >
               <span
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 relative z-10
+                className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 relative z-10
                 ${currentActiveSection === section.id
-                    ? 'bg-primary text-primary-foreground scale-110 shadow-sm'
-                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-primary hover:scale-110'}`}
+                    ? 'bg-primary text-primary-foreground scale-110 shadow-lg shadow-primary/30'
+                    : 'bg-secondary/50 text-secondary-foreground hover:bg-primary/10 hover:text-primary hover:scale-110'}`}
               >
                 {section.icon}
               </span>
-              <span className={`text-nowrap mt-1 flex items-center justify-center text-sm font-medium select-none transition-colors duration-300
+              <span className={`text-nowrap mt-1 flex items-center justify-center text-[10px] uppercase tracking-wider font-bold select-none transition-colors duration-300
               ${currentActiveSection === section.id
-                  ? 'text-primary font-semibold'
+                  ? 'text-primary'
                   : 'text-muted-foreground group-hover:text-primary'}`}>
                 {t(`nav.${section.id}`)}
               </span>
