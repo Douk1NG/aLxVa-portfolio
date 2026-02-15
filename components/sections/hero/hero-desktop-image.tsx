@@ -9,7 +9,7 @@ export function HeroDesktopImage() {
             <div className="relative aspect-square w-full max-w-sm mx-auto">
                 <div className="relative h-full w-full drop-shadow-lg drop-shadow-cyan-500">
                     <Image
-                        src={getAssetPath("/aLxVa-portfolio/avatar.webp")}
+                        src={getAssetPath("/avatar.webp")}
                         alt="Portrait of Dibey Valencia"
                         fill
                         className="object-cover"
