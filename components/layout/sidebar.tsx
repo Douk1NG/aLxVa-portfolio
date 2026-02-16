@@ -2,7 +2,6 @@ import useActiveSection from "@/hooks/useActiveSection";
 import { useLanguageContext } from "@/hooks/useLanguage";
 import { useMobileNav } from "@/components/providers/mobile-nav-context";
 import { sections } from "@/config/sections"
-
 import { useMediaQuery } from "@/hooks/use-media-query"
 
 export function Sidebar() {
@@ -10,17 +9,13 @@ export function Sidebar() {
   const { scrollToSection, activeSection: activeSectionCtx } = useMobileNav();
   const { t } = useLanguageContext();
   const isMobile = useMediaQuery("(max-width: 768px)")
-
-  // Determine which active section source to use based on mode
-  // Note: On first render 'isMobile' is false, so it defaults to activeSection (desktop behavior). 
-  // This prevents hydration mismatch.
   const currentActiveSection = isMobile ? activeSectionCtx : activeSection
 
   return (
     <aside className="flex">
       <nav
         className={`
-          flex w-full md:w-24 glass border-l flex-col justify-center 
+          flex w-full md:w-24 glass border-l flex-col justify-center
           md:my-0 md:mx-0
           ${isMobile
             ? 'fixed top-0 left-0 right-0 z-50 border-b border-l-0 h-16 px-4 shadow-md'

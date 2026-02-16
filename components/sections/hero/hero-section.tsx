@@ -11,7 +11,7 @@ export function HeroSection() {
   const isMobile = useMediaQuery("(max-width: 768px)")
 
   return (
-    <div className="relative px-4 sm:px-6 lg:px-8">
+    <div className="relative px-4 sm:px-6 lg:px-8 m-auto">
       <HeroActions />
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">

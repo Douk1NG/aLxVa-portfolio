@@ -7,15 +7,12 @@ export function ContactSection() {
 
   return (
     <>
-      <div className="flex flex-col space-y-8">
+      <div className="flex flex-col gap-4 p-4">
         <SectionHeading
           title={t('contact.title')}
           subtitle={t('contact.description')}
         />
-
-        <div className="space-y-8">
-          <ContactForm />
-        </div>
+        <ContactForm />
       </div>
     </>
   )

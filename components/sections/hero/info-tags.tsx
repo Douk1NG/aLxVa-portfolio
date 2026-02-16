@@ -3,18 +3,23 @@
 import { useLanguageContext } from '@/hooks/useLanguage'
 import { infoTags } from '@/data/info-tags'
 import { ComponentProps, ElementType } from 'react'
+import IconSVG from '@/components/shared/IconSVG'
+import type { SvgIcon } from '@/types/svgIcons'
 
 function InfoTag({
-  icon: Icon,
+  icon,
   children,
   ...props
-}: ComponentProps<'span'> & { icon: ElementType }) {
+}: ComponentProps<'span'> & { icon: ElementType | SvgIcon }) {
+  const Icon = icon
   return (
     <span
       className="flex gap-2 items-center border border-secondary-foreground/20 rounded-full px-3 py-1 md:border-none"
       {...props}
     >
-      <Icon />
+      {
+        typeof Icon === 'string' ? <IconSVG name={icon as SvgIcon} /> : <Icon />
+      }
       {children}
     </span>
   )

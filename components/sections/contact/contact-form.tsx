@@ -16,7 +16,7 @@ export function ContactForm() {
   if (isSuccess) {
     return (
       <Card className="bg-card/20 backdrop-blur-sm">
-        <CardContent className="p-8 text-center flex flex-col items-center justify-center space-y-4 min-h-[400px]">
+        <CardContent className="p-8 text-center flex flex-col items-center justify-center space-y-4 min-h-100">
           <div className="rounded-full bg-primary/10 p-6">
             <CheckCircle2 className="h-12 w-12 text-primary" />
           </div>
@@ -30,7 +30,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="bg-card/20 backdrop-blur-sm md:mx-92">
+    <Card className="bg-card/20 backdrop-blur-sm md:mx-auto">
       <CardContent className="p-8">
         <form onSubmit={submitForm} className="space-y-6">
           <div className="grid gap-6 sm:grid-cols-2">

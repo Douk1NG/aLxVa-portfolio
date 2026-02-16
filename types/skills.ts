@@ -1,4 +1,5 @@
 import type { LucideIconName } from "@/components/shared/Icon";
+import type { SvgIcon } from "./svgIcons";
 
 export type SkillCategory =
   | "languages"
@@ -10,7 +11,8 @@ export type SkillCategory =
 
 export type SkillItem = {
   name: string;
-  icon: LucideIconName;
+  icon?: LucideIconName;
+  svg?: SvgIcon;
   category: SkillCategory;
 };
 

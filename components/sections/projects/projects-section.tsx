@@ -8,13 +8,12 @@ export function ProjectsSection() {
 
   return (
     <>
-      <div className="flex flex-col space-y-8">
+      <div className="flex flex-col gap-4 p-4">
         <SectionHeading
           title={t('projects.title')}
-          subtitle={t('projects.description')}
         />
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2 p-4">
           {projectsData.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

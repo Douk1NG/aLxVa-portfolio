@@ -1,18 +1,5 @@
-import { Code2, MapPin, Github, Linkedin } from 'lucide-react'
-import { type LucideIcon } from 'lucide-react'
-
-/**
- * Type for information tags
- */
-export type InfoTag = {
-  /** Icon component */
-  icon: LucideIcon
-  /** Translation key for the title */
-  titleKey: string
-  /** Translation key for the description */
-  /** Optional link URL */
-  href?: string
-}
+import { Code2, MapPin } from 'lucide-react'
+import type { InfoTag } from '@/types/infotag'
 
 export const infoTags: InfoTag[] = [
   {
@@ -24,13 +11,13 @@ export const infoTags: InfoTag[] = [
     titleKey: 'hero.location'
   },
   {
-    icon: Github,
+    icon: 'github_light',
     titleKey: 'hero.github',
-    href: '.'
+    href: 'https://github.com/Douk1NG.'
   },
   {
-    icon: Linkedin,
+    icon: 'linkedin',
     titleKey: 'hero.linkedin',
-    href: '.'
+    href: 'https://www.linkedin.com/in/douk1ng/.'
   }
 ]

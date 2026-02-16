@@ -10,7 +10,8 @@
     "serve:out": "npx serve -s out",
     "deploy": "npm run export && gh-pages -d out -b gh-pages",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "generate:icons": "npx tsx scripts/generateIconType.ts"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.8.0",

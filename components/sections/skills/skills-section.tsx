@@ -7,7 +7,7 @@ export function SkillsSection() {
   const { t } = useLanguageContext();
 
   return (
-    <div className="flex flex-col space-y-8">
+    <div className="flex flex-col gap-4 p-4">
       <SectionHeading
         title={t('skills.title')}
       />

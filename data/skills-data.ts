@@ -7,32 +7,34 @@ export const skillsData: SkillGroup[] = [
     variant: "feature",
     icon: "LayoutTemplate",
     skills: [
-      { name: "React", icon: "SquareCode", category: "frontend" },
-      { name: "Next.js", icon: "Triangle", category: "frontend" },
-      { name: "Tailwind", icon: "Wind", category: "frontend" },
-      { name: "CSS3", icon: "Paintbrush", category: "frontend" },
-      { name: "Zod", icon: "Shield", category: "frontend" },
-      { name: "TypeScript", icon: "Shield", category: "frontend" },
-      { name: "JavaScript", icon: "Shield", category: "frontend" },
-      { name: "HTML5", icon: "Shield", category: "frontend" },
-      { name: "Zustand", icon: "Stamp", category: "frontend" },
+      { name: "React", svg: "react_light", category: "frontend" },
+      { name: "Next.js", svg: "next", category: "frontend" },
+      { name: "Tailwind", svg: "tailwindcss", category: "frontend" },
+      { name: "CSS3", svg: "css_old", category: "frontend" },
+      { name: "Zod", svg: "zod", category: "frontend" },
+      { name: "TypeScript", svg: "typescript", category: "frontend" },
+      { name: "JavaScript", svg: "javascript", category: "frontend" },
+      { name: "HTML5", svg: "html5", category: "frontend" },
+      { name: "Zustand", svg: "zustand", category: "frontend" },
     ]
   },
   {
-    name: "Tools & Workflow",
-    variant: "default",
-    icon: "Wrench",
-    skills: [
-      { name: "Git", icon: "GitBranch", category: "tools" },
-    ]
-  },
-  {
-    name: "Backend & Database",
-    variant: "vertical",
+    name: "Backend Development",
+    variant: "feature",
     icon: "Server",
     skills: [
-      { name: "PostgreSQL", icon: "Database", category: "database" },
+      { name: "PostgreSQL", svg: "postgresql", category: "database" },
+      { name: "PHP", svg: "php", category: "backend" },
       { name: "REST APIs", icon: "Webhook", category: "backend" },
+    ]
+  },
+  {
+    name: "Testing & Workflow",
+    variant: "wide",
+    icon: "Wrench",
+    skills: [
+      { name: "Cypress", icon: "TestTube", category: "tools" },
+      { name: "Git", svg: "git", category: "tools" },
     ]
   },
   {
@@ -45,15 +47,7 @@ export const skillsData: SkillGroup[] = [
       { name: "Adaptability", icon: "Shuffle", category: "tools" },
       { name: "Communication", icon: "MessageSquare", category: "tools" },
     ]
-  },
-  {
-    name: "Testing & Quality",
-    variant: "default",
-    icon: "ShieldCheck",
-    skills: [
-      { name: "Cypress", icon: "TestTube", category: "tools" },
-    ]
-  },
+  }
 ]
 
 export const skillsName = skillsData.map((skill) => skill.name)
