@@ -1,4 +1,4 @@
-import { Code2, MapPin } from 'lucide-react'
+import { Code2, MapPin, Mail, Download } from 'lucide-react'
 import type { InfoTag } from '@/types/infotag'
 
 export const infoTags: InfoTag[] = [
@@ -19,5 +19,15 @@ export const infoTags: InfoTag[] = [
     icon: 'linkedin',
     titleKey: 'hero.linkedin',
     href: 'https://www.linkedin.com/in/douk1ng/.'
+  },
+  {
+    icon: Mail,
+    titleKey: 'hero.email',
+    href: 'mailto:dialexanderx@gmail.com'
+  },
+  {
+    icon: Download,
+    titleKey: 'hero.cv',
+    href: '/cv.pdf'
   }
 ]

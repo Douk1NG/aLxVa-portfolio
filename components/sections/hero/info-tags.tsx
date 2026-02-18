@@ -18,7 +18,7 @@ function InfoTag({
       {...props}
     >
       {
-        typeof Icon === 'string' ? <IconSVG name={icon as SvgIcon} /> : <Icon />
+        typeof Icon === 'string' ? <IconSVG name={icon as SvgIcon} /> : <Icon className="w-4 h-4" />
       }
       {children}
     </span>

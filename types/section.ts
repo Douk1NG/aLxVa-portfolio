@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export type SectionName = 'about' | 'experience' | 'projects' | 'skills' | 'contact';
+export type SectionName = 'about' | 'journey' | 'skills' | 'contact';
 
 /**
  * Section configuration type

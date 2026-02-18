@@ -1,6 +1,6 @@
 import { Translation } from "@/types/language";
 
-const en:Translation = {
+const en: Translation = {
     'contact.title': 'Get In Touch',
     'contact.description': 'Let\'s discuss your next project or just say hello',
     'contact.name': 'Name',
@@ -14,9 +14,11 @@ const en:Translation = {
     'contact.send': 'Send Message',
     'contact.sending': 'Sending...',
     'contact.success.title': 'Message sent!',
-    'contact.success.description': 'Thanks for reaching out. I\'ll get back to you soon.'
+    'contact.success.description': 'Thanks for reaching out. I\'ll get back to you soon.',
+    'contact.getInTouch': 'Get in Touch',
+    'contact.infoText': 'Feel free to reach out for collaborations or just a friendly hello',
 }
-const es:Translation = {
+const es: Translation = {
     'contact.title': 'Contacto',
     'contact.description': 'Hablemos sobre tu próximo proyecto o simplemente saluda',
     'contact.name': 'Nombre',
@@ -31,6 +33,8 @@ const es:Translation = {
     'contact.sending': 'Enviando...',
     'contact.success.title': '¡Mensaje enviado!',
     'contact.success.description': 'Gracias por contactarme. Te responderé pronto.',
+    'contact.getInTouch': 'Ponte en Contacto',
+    'contact.infoText': 'Siéntete libre de contactarme para colaboraciones o simplemente para un saludo amistoso',
 }
 
 const contactTranslations = { en, es };

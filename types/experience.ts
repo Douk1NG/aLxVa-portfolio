@@ -12,4 +12,8 @@ export type Experience = {
   description: string;
   /** Employment period */
   period: string;
+  /** Technologies/Skills used */
+  skills: string[];
+  /** Duration of the job */
+  duration: string;
 };
