@@ -19,7 +19,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <Card className="bg-card/50 backdrop-blur-sm border-none shadow-lg hover:shadow-xl transition-all h-full flex flex-col">
             <CardHeader className="pb-2">
                 <div className="flex flex-col gap-2">
-                    <div className="flex justify-between items-start">
+                    <div className="flex justify-between items-start flex-col  gap-2">
                         <CardTitle className="text-lg font-bold text-primary">
                             {t(project.title)}
                         </CardTitle>

@@ -1,33 +1,14 @@
 'use client'
 
 import { Button } from '@/components/ui/button';
-import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
-import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useThemeToggle } from '@/hooks/useThemeToggle';
 
 export default function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, toggleTheme, isMounted } = useThemeToggle();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMounted(true);
-    }, 0);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
-  };
-
-  const getIcon = () => {
-    if (resolvedTheme === 'dark') return <Moon className="h-4 w-4" />;
-    return <Sun className="h-4 w-4" />;
-  };
-
-  if (!mounted) {
+  if (!isMounted) {
     return (
       <div className="inline-flex items-center rounded-full border bg-secondary/50 p-1 backdrop-blur-sm shadow-lg">
         <div className="h-9 w-9 animate-pulse bg-muted rounded-full" />
@@ -56,10 +37,14 @@ export default function ThemeToggle() {
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="flex items-center justify-center h-4 w-4"
           >
-            {getIcon()}
+            {resolvedTheme === 'dark' ? (
+              <Moon className="h-4 w-4" />
+            ) : (
+              <Sun className="h-4 w-4" />
+            )}
           </motion.div>
         </AnimatePresence>
       </Button>
     </div>
   );
-} 
+}

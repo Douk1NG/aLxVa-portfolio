@@ -1,7 +1,7 @@
 import { Section } from "@/types/section"
 import { motion } from "framer-motion"
 
-export function DesktopMain({ sections }: { sections: Section[] }) {
+export function Sections({ sections }: { sections: Section[] }) {
     return (
         <>
             {sections.map((section: Section) => (

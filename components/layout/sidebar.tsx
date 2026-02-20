@@ -1,38 +1,24 @@
 import useActiveSection from "@/hooks/useActiveSection";
 import { useLanguageContext } from "@/hooks/useLanguage";
-import { useMobileNav } from "@/components/providers/mobile-nav-context";
 import { sections } from "@/config/sections"
-import { useMediaQuery } from "@/hooks/use-media-query"
 
 export function Sidebar() {
   const activeSection = useActiveSection();
-  const { scrollToSection, activeSection: activeSectionCtx } = useMobileNav();
   const { t } = useLanguageContext();
-  const isMobile = useMediaQuery("(max-width: 768px)")
-  const currentActiveSection = isMobile ? activeSectionCtx : activeSection
+  const currentActiveSection = activeSection
 
   return (
-    <aside className="flex">
+    <aside className="hidden md:flex">
       <nav
-        className={`
-          flex w-full md:w-24 glass border-l flex-col justify-center
+        className="w-full md:w-24 glass border-l flex-col justify-center
           md:my-0 md:mx-0
-          ${isMobile
-            ? 'fixed top-0 left-0 right-0 z-50 border-b border-l-0 h-16 px-4 shadow-md'
-            : 'mt-4 mx-1 rounded-2xl'}
-        `}
+          mt-4 mx-1 rounded-2xl"
       >
         <div className="flex md:flex-col md:items-center justify-between md:justify-around h-full">
           {sections.map((section) => (
             <a
               key={section.id}
               href={`#${section.id}`}
-              onClick={(e) => {
-                if (isMobile) {
-                  e.preventDefault()
-                  scrollToSection(section.id)
-                }
-              }}
               className="flex flex-col items-center justify-center relative group no-underline mt-2 md:mt-0"
             >
               <span
