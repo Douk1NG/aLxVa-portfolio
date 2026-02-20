@@ -2,12 +2,9 @@ import { ReactNode } from 'react';
 
 export type SectionName = 'about' | 'journey' | 'skills' | 'contact';
 
-/**
- * Section configuration type
- */
 export type Section = {
   id: SectionName;
   label: string;
   icon: ReactNode;
   component: ReactNode;
-} 
+}
