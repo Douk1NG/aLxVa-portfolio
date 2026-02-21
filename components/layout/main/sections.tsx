@@ -1,7 +1,10 @@
 import { Section } from "@/types/section"
 import { motion } from "framer-motion"
+import { useKeyboardNavigation } from "@/hooks/useKeyboardNavigation"
 
 export function Sections({ sections }: { sections: Section[] }) {
+    useKeyboardNavigation(sections)
+
     return (
         <>
             {sections.map((section: Section) => (
@@ -13,7 +16,7 @@ export function Sections({ sections }: { sections: Section[] }) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="container mx-auto space-y-32 min-h-screen flex flex-col snap-section"
+                    className="container mx-auto space-y-32 min-h-screen flex flex-col"
                 >
                     {section.component}
                 </motion.section>

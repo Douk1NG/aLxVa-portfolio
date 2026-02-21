@@ -174,16 +174,10 @@ aside {
   @apply glass transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1;
 }
 
-/* === SNAP SCROLLING === */
-.snap-container {
-  scroll-snap-type: y mandatory;
+/* === SCROLLING === */
+.scroll-container {
   overflow-y: auto;
   height: 100vh;
-}
-
-.snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 ::-webkit-scrollbar {

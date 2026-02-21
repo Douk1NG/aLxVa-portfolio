@@ -8,11 +8,11 @@ export default function Main() {
     const mounted = useMounted()
 
     if (!mounted) {
-        return <MainSkeleton className='flex-1 snap-container' />
+        return <MainSkeleton className='flex-1 scroll-container' />
     }
 
     return (
-        <main className='flex-1 snap-container'>
+        <main className='flex-1 scroll-container'>
             <Sections sections={sections} />
         </main>
     )

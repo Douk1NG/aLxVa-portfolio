@@ -6,7 +6,7 @@ import HeroName from "./hero-name"
 
 export function HeroMobileHeader() {
     return (
-        <div className="space-y-4 mt-16">
+        <div className="md:hidden space-y-4 mt-16">
             <div className="flex items-center gap-6">
                 <div className="flex-1">
                     <HeroName />

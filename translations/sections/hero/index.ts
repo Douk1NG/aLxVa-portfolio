@@ -16,7 +16,8 @@ const en: Translation = {
     'hero.linkedin.description': 'Connect with me',
     'hero.available': 'Available for work',
     'hero.email': 'Email',
-    'hero.cv': 'Download CV'
+    'hero.cv': 'Download CV',
+    'hero.keyboardHint': 'Use Arrow Keys to navigate'
 }
 const es: Translation = {
     ...general,
@@ -29,7 +30,8 @@ const es: Translation = {
     'hero.email': 'Correo',
     'hero.cv': 'Descargar HV',
     'hero.linkedin.description': 'Conecta conmigo',
-    'hero.available': 'Disponible para trabajar'
+    'hero.available': 'Disponible para trabajar',
+    'hero.keyboardHint': 'Usa las flechas para navegar'
 }
 
 const heroTranslations = { en, es };
