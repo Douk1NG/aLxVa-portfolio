@@ -31,12 +31,12 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
                             <span className="hidden md:block text-muted-foreground ">{t(experience.duration)}</span>
                         </Badge>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-2 text-sm text-muted-foreground">
+                    <div className="flex flex-col lg:flex-row gap-2 text-sm text-muted-foreground">
                         <span className="flex gap-2">
                             <Building2 className="h-4 w-4 shrink-0" />
                             <span className="truncate">{experience.company}</span>
                         </span>
-                        <span className="md:block hidden">•</span>
+                        <span className="lg:block hidden">•</span>
                         <span className="flex gap-2">
                             <MapPin className="h-4 w-4 shrink-0" />
                             <span className="truncate">{t(experience.location)}</span>

@@ -1,43 +1,53 @@
-import useActiveSection from "@/hooks/useActiveSection";
-import { useLanguageContext } from "@/hooks/useLanguage";
-import { sections } from "@/config/sections"
+"use client";
 
-export function Sidebar() {
-  const activeSection = useActiveSection();
-  const { t } = useLanguageContext();
-  const currentActiveSection = activeSection
+import { useSidebar } from "@/hooks/useSidebar";
+import { SidebarProps } from "@/types/layout/sidebar";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+export function Sidebar({ className }: SidebarProps) {
+  const { navItems, isActive, activeSection } = useSidebar();
 
   return (
-    <aside className="hidden md:flex">
-      <nav
-        className="w-full md:w-24 glass border-l flex-col justify-center
-          md:my-0 md:mx-0
-          mt-4 mx-1 rounded-2xl"
-      >
-        <div className="flex md:flex-col md:items-center justify-between md:justify-around h-full">
-          {sections.map((section) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              className="flex flex-col items-center justify-center relative group no-underline mt-2 md:mt-0"
+    <aside
+      className={cn(
+        "fixed right-2 top-1/2 -translate-y-1/2 z-50 hidden md:flex",
+        className
+      )}
+    >
+      <nav className="glass rounded-full p-2 flex flex-col gap-4 shadow-2xl border-primary/10">
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className="relative p-3 rounded-full transition-colors group"
+            title={item.label}
+          >
+            <AnimatePresence>
+              {isActive(item.id) && (
+                <motion.span
+                  layoutId="active-pill-desktop"
+                  className="absolute inset-0 bg-primary rounded-full shadow-lg shadow-primary/30"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+            </AnimatePresence>
+
+            <span
+              className={cn(
+                "relative z-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110",
+                isActive(item.id) ? "text-primary-foreground" : "text-muted-foreground group-hover:text-primary"
+              )}
             >
-              <span
-                className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 relative z-10
-                ${currentActiveSection === section.id
-                    ? 'bg-primary text-primary-foreground scale-110 shadow-lg shadow-primary/30'
-                    : 'bg-secondary/50 text-secondary-foreground hover:bg-primary/10 hover:text-primary hover:scale-110'}`}
-              >
-                {section.icon}
-              </span>
-              <span className={`text-nowrap mt-1 flex items-center justify-center text-[10px] uppercase tracking-wider font-bold select-none transition-colors duration-300
-              ${currentActiveSection === section.id
-                  ? 'text-primary'
-                  : 'text-muted-foreground group-hover:text-primary'}`}>
-                {t(`nav.${section.id}`)}
-              </span>
-            </a>
-          ))}
-        </div>
+              {item.icon}
+            </span>
+
+            {/* Tooltip-like label on hover for desktop */}
+            <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-popover text-popover-foreground text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-border">
+              {item.label}
+            </span>
+          </a>
+        ))}
       </nav>
     </aside>
   );

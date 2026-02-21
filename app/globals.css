@@ -125,12 +125,12 @@ body {
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 100px;
+  grid-template-columns: 1fr 70px;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header header"
-    "main sidebar"
-    "footer footer";
+    "header"
+    "main"
+    "footer";
 }
 
 @media (max-width: 768px) {

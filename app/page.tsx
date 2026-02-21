@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <LanguageProvider>
       <Main />
-      <Sidebar />
+      <Sidebar className="sidebar" />
     </LanguageProvider>
   )
 }
