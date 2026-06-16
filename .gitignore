@@ -37,6 +37,7 @@ yarn-error.log*
 data/portfolio.private.json
 data/portfolio.json
 public/*.pdf
+exports
 # vercel
 .vercel
 
