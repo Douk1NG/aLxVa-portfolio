@@ -1,0 +1,1 @@
+export { infoTags } from './portfolio'

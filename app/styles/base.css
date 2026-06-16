@@ -1,0 +1,189 @@
+@layer base {
+  :root {
+    --background: var(--background-deep);
+    --foreground: var(--foreground-primary);
+
+    --card: var(--background-elevated);
+    --card-foreground: var(--foreground-primary);
+
+    --popover: var(--background-elevated);
+    --popover-foreground: var(--foreground-primary);
+
+    --primary: var(--primary-cyan);
+    --primary-foreground: 222 47% 7%;
+
+    --secondary: 217 32% 16%;
+    --secondary-foreground: var(--foreground-primary);
+    --muted: 217 32% 16%;
+    --muted-foreground: var(--foreground-muted);
+
+    --accent: 187 100% 42%;
+    --accent-foreground: 222 47% 7%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: var(--foreground-primary);
+
+    --border: 217 32% 16%;
+    --input: 217 32% 16%;
+    --ring: var(--primary-cyan);
+
+    --chart-1: 222 47% 11%;
+    --chart-2: 217 32% 16%;
+    --chart-3: 187 100% 42%;
+    --chart-4: var(--foreground-primary);
+    --chart-5: 217 32% 20%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    background:
+      var(--gradient-radial-dark), var(--gradient-mesh);
+    background-color: hsl(
+      var(--background-deep, 220 15% 4%)
+    );
+    color: hsl(var(--foreground, 0 0% 98%));
+    @apply transition-colors duration-300;
+  }
+
+  html {
+    /* Base scaling: 16px at 1280px, scales between 14px and 18px */
+    /* Fallback for browsers without clamp() support */
+    font-size: 16px;
+    font-size: clamp(14px, 1.25vw, 18px);
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  * {
+    border-color: hsl(var(--border) / 0.5);
+    /* Smooth transitions (Requirement 8.1, 8.2) */
+    transition-property:
+      background-color, color, border-color, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    );
+  }
+
+  /* Reduced Motion Support - Disable animations for accessibility (Requirement 4.4) */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Responsive Grid Layout (Requirements 2.1, 2.2, 2.3) */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Fallback for browsers without CSS variable support */
+    gap: 1.5rem;
+    gap: var(--grid-gap);
+    align-items: start;
+  }
+
+  /* Tablet breakpoint: 1024px - 4-8 column split */
+  @media (min-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(12, 1fr);
+      /* Fallback for browsers without CSS variable support */
+      gap: 2rem;
+      gap: var(--grid-gap-tablet);
+    }
+
+    .hero-column {
+      grid-column: span 4;
+    }
+
+    .content-column {
+      grid-column: span 8;
+    }
+  }
+
+  /* Desktop breakpoint: 1440px - 3-9 column split */
+  @media (min-width: 1440px) {
+    .hero-column {
+      grid-column: span 3;
+    }
+
+    .content-column {
+      grid-column: span 9;
+    }
+  }
+
+  /* Compact mode for short viewports (Requirement 1.3) */
+  /* Viewport height-based media query for browsers that support it */
+  @media (max-height: 700px) {
+    .portfolio-grid {
+      /* Fallback for browsers without CSS variable support */
+      gap: 0.75rem;
+      gap: var(--grid-gap-compact);
+    }
+  }
+
+  /* Additional viewport-based fallback using aspect ratio for older browsers */
+  /* This targets devices with narrow aspect ratios (likely short viewports) */
+  @media (max-aspect-ratio: 4/3) and (max-width: 1024px) {
+    .portfolio-grid {
+      gap: 0.75rem;
+      gap: var(--grid-gap-compact);
+    }
+  }
+
+  /* Edge Case: Extremely small viewports (Requirements 1.3, 1.4) */
+  /* Handle viewports <320px width or <400px height */
+  @media (max-width: 320px), (max-height: 400px) {
+    /* Apply absolute minimum spacing */
+    .portfolio-grid {
+      gap: 0.25rem;
+    }
+
+    /* Minimum padding for all sections */
+    .section-padding,
+    .section-padding-responsive,
+    .card-padding-responsive {
+      padding: 0.25rem;
+    }
+
+    /* Disable animations for performance */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    /* Ensure minimum font size */
+    html {
+      font-size: 14px;
+    }
+
+    /* Stack all content vertically */
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Disable backdrop-filter for performance */
+    .glass {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      background: hsl(
+        var(--background-elevated, 220 10% 8%) / 0.8
+      );
+    }
+  }
+}

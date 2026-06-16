@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+/*
+ * CSS Architecture
+ * ----------------
+ * This file serves as the main entry point for global styles.
+ * It imports modular CSS files from the ./styles directory:
+ *
+ * 1. theme.css: Design tokens, colors, and Tailwind mappings.
+ * 2. base.css: Global resets, typography, and base layout styles.
+ * 3. utilities.css: Custom @utility classes and complex visual effects.
+ */
+
+@import './styles/theme.css';
+@import './styles/base.css';
+@import './styles/utilities.css';
+
+/* === BROWSER COMPATIBILITY & FALLBACKS === */
+/*
+ * Progressive enhancement fallbacks for older browsers.
+ * Specific implementations can be found in the respective modular files.
+ *
+ * 1. clamp() Function Fallbacks: Static values provided before clamp()
+ * 2. backdrop-filter Support: Checks for capability and provides opacity fallbacks
+ * 3. background-clip: text Support: Provides solid color fallbacks
+ */
+
+/* === CUSTOM BREAKPOINTS === */
+@custom-media --xl (min-width: 1440px);

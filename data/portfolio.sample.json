@@ -1,0 +1,165 @@
+{
+  "translations": {
+    "hero": {
+      "en": {
+        "hero.name": "Jane",
+        "hero.surname": "Doe",
+        "hero.description": "Web developer passionate about building accessible, performant applications. Replace this sample data in data/portfolio.private.json with your own content.",
+        "hero.role": "Web developer",
+        "hero.location": "City, Country"
+      },
+      "es": {
+        "hero.name": "Jane",
+        "hero.surname": "Doe",
+        "hero.description": "Desarrolladora web apasionada por crear aplicaciones accesibles y de alto rendimiento. Reemplaza estos datos de ejemplo en data/portfolio.private.json con tu propio contenido.",
+        "hero.role": "Desarrolladora web",
+        "hero.location": "Ciudad, País"
+      }
+    },
+    "experience": {
+      "en": {
+        "exp.job1.title": "Junior Developer",
+        "exp.job1.period": "JAN 2022 - DEC 2022",
+        "exp.job1.loc": "Sample City, Country",
+        "exp.job1.desc": "First professional role working on internal web tools within a small engineering team.",
+        "exp.job1.duration": "12 months",
+        "exp.job1.duration_short": "12m",
+        "exp.job2.title": "Fullstack Developer",
+        "exp.job2.period": "JAN 2023 - PRESENT",
+        "exp.job2.loc": "Sample City, Country",
+        "exp.job2.desc": "Contributed to product features, bug fixes, and platform improvements in a cross-functional team using modern web technologies.",
+        "exp.job2.duration": "2 years",
+        "exp.job2.duration_short": "2y"
+      },
+      "es": {
+        "exp.job1.title": "Desarrollador Junior",
+        "exp.job1.period": "ENE 2022 - DIC 2022",
+        "exp.job1.loc": "Ciudad de ejemplo, País",
+        "exp.job1.desc": "Primer rol profesional trabajando en herramientas web internas dentro de un equipo pequeño.",
+        "exp.job1.duration": "12 meses",
+        "exp.job1.duration_short": "12m",
+        "exp.job2.title": "Desarrollador Full Stack",
+        "exp.job2.period": "ENE 2023 - ACTUAL",
+        "exp.job2.loc": "Ciudad de ejemplo, País",
+        "exp.job2.desc": "Contribuí con funcionalidades, corrección de errores y mejoras de plataforma en un equipo multifuncional con tecnologías web modernas.",
+        "exp.job2.duration": "2 años",
+        "exp.job2.duration_short": "2a"
+      }
+    },
+    "projects": {
+      "en": {
+        "project1.title": "Sample Project",
+        "project1.desc": "A demo project that showcases the expandable card layout, tech tags, and bilingual content structure of this portfolio template.",
+        "project1.key_description": "Portfolio template"
+      },
+      "es": {
+        "project1.title": "Proyecto de ejemplo",
+        "project1.desc": "Un proyecto de demostración que muestra el diseño de tarjetas expandibles, etiquetas de tecnología y contenido bilingüe de esta plantilla de portafolio.",
+        "project1.key_description": "Plantilla de portafolio"
+      }
+    }
+  },
+  "experience": [
+    {
+      "title": "exp.job2.title",
+      "company": "Acme Corp",
+      "location": "exp.job2.loc",
+      "description": "exp.job2.desc",
+      "period": "exp.job2.period",
+      "skills": [
+        { "name": "React", "svg": "React" },
+        { "name": "Next.js", "svg": "Next" },
+        { "name": "TypeScript", "svg": "Typescript" },
+        { "name": "Git", "svg": "Git" },
+        { "name": "Communication", "icon": "message-square" }
+      ],
+      "duration": {
+        "short": "exp.job2.duration_short",
+        "long": "exp.job2.duration"
+      }
+    },
+    {
+      "title": "exp.job1.title",
+      "company": "Example Inc",
+      "location": "exp.job1.loc",
+      "description": "exp.job1.desc",
+      "period": "exp.job1.period",
+      "skills": [
+        { "name": "HTML5", "svg": "Html5" },
+        { "name": "CSS3", "svg": "Css" },
+        { "name": "JavaScript", "svg": "Javascript" },
+        { "name": "Team Collaboration", "icon": "users" }
+      ],
+      "duration": {
+        "short": "exp.job1.duration_short",
+        "long": "exp.job1.duration"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "title": "project1.title",
+      "description": "project1.desc",
+      "key_description": "project1.key_description",
+      "tech": [
+        { "name": "React", "svg": "React" },
+        { "name": "TypeScript", "svg": "Typescript" },
+        { "name": "Tailwind", "svg": "Tailwindcss" }
+      ],
+      "github": "https://github.com/example/sample-project",
+      "demo": "https://example.com"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend Development",
+      "skills": [
+        { "name": "React", "svg": "React" },
+        { "name": "Next.js", "svg": "Next" },
+        { "name": "TypeScript", "svg": "Typescript" },
+        { "name": "Tailwind", "svg": "Tailwindcss" }
+      ]
+    },
+    {
+      "category": "Backend Development",
+      "skills": [
+        { "name": "PostgreSQL", "svg": "Postgresql" },
+        { "name": "REST APIs", "icon": "webhook" }
+      ]
+    },
+    {
+      "category": "Workflow",
+      "skills": [
+        { "name": "Git", "svg": "Git" },
+        { "name": "Problem Solving", "icon": "brain" }
+      ]
+    }
+  ],
+  "info": [
+    { "icon": "code-2", "titleKey": "hero.role" },
+    { "icon": "map-pin", "titleKey": "hero.location" },
+    {
+      "svg": "Github",
+      "titleKey": "hero.github",
+      "href": "https://github.com/example"
+    },
+    {
+      "svg": "Linkedin",
+      "titleKey": "hero.linkedin",
+      "href": "https://www.linkedin.com/in/example"
+    },
+    {
+      "icon": "mail",
+      "titleKey": "hero.email",
+      "href": "mailto:hello@example.com"
+    },
+    {
+      "icon": "download",
+      "titleKey": "hero.cv",
+      "hrefByLanguage": {
+        "es": "/cv-es.pdf",
+        "en": "/cv-en.pdf"
+      }
+    }
+  ]
+}
