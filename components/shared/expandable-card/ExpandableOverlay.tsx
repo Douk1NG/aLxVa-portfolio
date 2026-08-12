@@ -1,6 +1,8 @@
-'use client'
-
-import { isValidElement, ReactNode } from 'react'
+import {
+  isValidElement,
+  ReactNode,
+} from 'react'
+import { createPortal } from 'react-dom'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useExpandableCarousel } from '@/hooks/useExpandableCarousel'
 import { useExpandableContext } from './ExpandableContext'
@@ -26,7 +28,7 @@ export function ExpandableOverlay({
 
   if (expandedIndex === null) return null
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-50 flex items-center justify-center sm:p-6 lg:p-10 bg-background/80 backdrop-blur-md animate-in fade-in duration-300"
       onClick={closeExpanded}
@@ -54,10 +56,10 @@ export function ExpandableOverlay({
                   key={index}
                   className="flex-[0_0_100%] min-w-0 flex justify-center py-4"
                 >
-                  <div className="w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-3xl border border-border bg-card shadow-2xl animate-in zoom-in-95 duration-300 no-scrollbar relative">
+                  <div className="gradient-border w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-3xl bg-card shadow-2xl animate-in zoom-in-95 duration-300 no-scrollbar relative">
                     <button
                       onClick={closeExpanded}
-                      className="hover:cursor-pointer absolute top-4 right-4 z-10 p-2.5 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-200 border border-border/50"
+                      className="hover:cursor-pointer absolute top-4 right-4 z-10 p-2.5 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-200 border border-primary/20"
                       aria-label="Close"
                     >
                       <X className="size-5" />
@@ -80,6 +82,7 @@ export function ExpandableOverlay({
           <ChevronRight className="size-6" />
         </button>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }

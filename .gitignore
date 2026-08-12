@@ -13,9 +13,8 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# vite
+/dist/
 
 # production
 /build
@@ -43,7 +42,6 @@ exports
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 
 #editor

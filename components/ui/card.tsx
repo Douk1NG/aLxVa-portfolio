@@ -15,11 +15,11 @@ const Card = React.forwardRef<
       'hover:shadow-[var(--shadow-light-lg),var(--glow-light-md)] hover:-translate-y-0.5',
       // Gradient border for both themes (Requirement 6.3)
       'border-2 border-transparent',
-      'hsl(var(--card))),var(--gradient-border-light)]',
+      'bg-[linear-gradient(hsl(var(--card)),hsl(var(--card))),var(--gradient-border)]',
       'bg-origin-border [background-clip:padding-box,border-box]',
       // Dark mode: glass morphism with backdrop-filter and gradient border
       'dark:bg-background-elevated/15 dark:shadow-(--shadow-glow-card)',
-      'hsl(var(--background-elevated)/0.15)),var(--gradient-border)]',
+      'dark:bg-[linear-gradient(hsl(var(--background-elevated)/0.15),hsl(var(--background-elevated)/0.15)),var(--gradient-border)]',
       // Optimize backdrop-filter for performance - only on viewports ≥768px (Requirement 7.1)
       'md:dark:backdrop-blur-md dark:hover:shadow-(--glow-md)',
       className,

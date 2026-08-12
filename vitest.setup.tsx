@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { vi } from 'vitest'
 import '@testing-library/react'
 import React from 'react'

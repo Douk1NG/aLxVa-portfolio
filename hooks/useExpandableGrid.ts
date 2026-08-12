@@ -16,9 +16,11 @@ export function useExpandableGrid() {
     [],
   )
 
-  if (isMobile && expandedIndex !== null) {
-    setExpandedIndex(null)
-  }
+  useEffect(() => {
+    if (isMobile) {
+      setExpandedIndex(null)
+    }
+  }, [isMobile])
 
   useEffect(() => {
     if (expandedIndex !== null && !isMobile) {

@@ -1,5 +1,3 @@
-'use client'
-
 import HeroSection from './hero/hero-section'
 import ExperienceSection from './experience/experience-section'
 import ProjectsSection from './projects/projects-section'
