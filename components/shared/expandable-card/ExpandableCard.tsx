@@ -1,5 +1,3 @@
-'use client'
-
 import { ExpandableCardProps } from '@/types/shared/expandable-card'
 import { useExpandableContext } from './ExpandableContext'
 

@@ -1,5 +1,3 @@
-'use client'
-
 import { isValidElement, ReactNode } from 'react'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useExpandableCarousel } from '@/hooks/useExpandableCarousel'

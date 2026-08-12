@@ -1,4 +1,3 @@
-'use client'
 import { useLanguageSwitcher } from '@/hooks/useLanguageSwitcher'
 import { infoTags } from '@/data/info-tags'
 import Icon from '@/components/shared/Icon'
@@ -22,11 +21,18 @@ function Tag({
 
 export default function HeroFooter() {
   const { language, t } = useLanguageSwitcher()
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+  const basePath = import.meta.env.BASE_URL.replace(
+    /\/$/,
+    '',
+  )
 
   const resolveHref = (href?: string) => {
     if (!href) return href
-    if (href.startsWith('http') || href.startsWith('mailto:')) return href
+    if (
+      href.startsWith('http') ||
+      href.startsWith('mailto:')
+    )
+      return href
     return `${basePath}${href}`
   }
 

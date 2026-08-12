@@ -1,22 +1,22 @@
 # Portfolio Project
 
-This is a modern portfolio website built with Next.js, TypeScript, and Tailwind CSS. The project follows a structured organization to make it easy to maintain and modify.
+This is a modern portfolio website built with Vite, React, TypeScript, and Tailwind CSS. The project follows a structured organization to make it easy to maintain and modify.
 
 ## Project Structure
 
 ```
-├── app/                  # Next.js app directory containing pages and layouts
-├── components/          # React components organized by category
-│   ├── layout/         # Layout components (header, footer, etc.)
+├── index.html          # HTML entry point
+├── main.tsx            # React bootstrap
+├── app/                # Global styles (CSS)
+├── components/         # React components organized by category
 │   ├── sections/       # Main section components
 │   ├── shared/         # Reusable components
-│   ├── ui/            # UI components (buttons, inputs, etc.)
-│   └── providers/     # Context providers
+│   ├── ui/             # UI components (buttons, inputs, etc.)
+│   └── providers/      # Context providers
 ├── hooks/              # Custom React hooks
 ├── types/              # TypeScript type definitions
-│   └── components/    # Component-specific types
 ├── public/             # Static assets
-└── data/              # Data files and constants
+└── data/               # Data files and constants
 ```
 
 ## How to Modify
@@ -26,7 +26,7 @@ This is a modern portfolio website built with Next.js, TypeScript, and Tailwind 
 1. Place new components in the appropriate directory under `components/`
 2. Use default exports for Single File Components
 3. Follow the naming convention: `ComponentName.tsx`
-4. Add corresponding types in `types/components/`
+4. Add corresponding types in `types/`
 
 ### Adding New Hooks
 
@@ -37,8 +37,7 @@ This is a modern portfolio website built with Next.js, TypeScript, and Tailwind 
 ### Adding New Types
 
 1. Place shared types in the `types/` directory
-2. Place component-specific types in `types/components/`
-3. Follow the naming convention: `entityName.ts`
+2. Follow the naming convention: `entityName.ts`
 
 ### Best Practices
 
@@ -87,6 +86,6 @@ Important: Do not modify the following configuration files unless specifically i
 - `package.json`
 - `tailwind.config.ts`
 - `tsconfig.json`
-- `next.config.ts`
+- `vite.config.ts`
 
 These files are carefully configured for the project's needs.

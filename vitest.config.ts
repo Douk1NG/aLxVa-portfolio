@@ -25,13 +25,12 @@ export default defineConfig({
         statements: 70,
         branches: 60,
         functions: 0,
-        lines: 0
+        lines: 0,
       },
       exclude: [
         '**/node_modules/**',
         '**/dist/**',
-        '**/out/**',
-        '**/.next/**',
+        '**/dist/**',
         '**/*.d.ts',
         '**/types/**',
         '**/test/**',
