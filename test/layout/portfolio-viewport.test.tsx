@@ -8,6 +8,7 @@ import {
 import { render } from '@testing-library/react'
 import Main from '@/components/main'
 import { LanguageProvider } from '@/components/providers/language-provider'
+import { ThemeProvider } from '@/components/providers/theme-provider'
 import {
   VIEWPORT_LAYOUT_BREAKPOINTS,
   VIEWPORT_FILL_CLASSES,
@@ -74,9 +75,11 @@ const renderMainAtViewport = (viewport: ViewportSize) => {
   document.body.appendChild(root)
 
   return render(
-    <LanguageProvider>
-      <Main />
-    </LanguageProvider>,
+    <ThemeProvider>
+      <LanguageProvider>
+        <Main />
+      </LanguageProvider>
+    </ThemeProvider>,
     { container: root },
   )
 }

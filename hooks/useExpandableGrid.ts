@@ -6,6 +6,14 @@ export function useExpandableGrid() {
     number | null
   >(null)
   const isMobile = useMediaQuery('(max-width: 768px)')
+  const [prevIsMobile, setPrevIsMobile] = useState(isMobile)
+
+  if (isMobile !== prevIsMobile) {
+    setPrevIsMobile(isMobile)
+    if (isMobile && expandedIndex !== null) {
+      setExpandedIndex(null)
+    }
+  }
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
@@ -15,12 +23,6 @@ export function useExpandableGrid() {
     },
     [],
   )
-
-  useEffect(() => {
-    if (isMobile) {
-      setExpandedIndex(null)
-    }
-  }, [isMobile])
 
   useEffect(() => {
     if (expandedIndex !== null && !isMobile) {
