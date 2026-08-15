@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import { cn } from '@/lib/utils'
@@ -8,6 +7,7 @@ type ScrollRevealProps = {
   className?: string
   index?: number
   delayStep?: number
+  offsetY?: number
 }
 
 export default function ScrollReveal({
@@ -15,15 +15,16 @@ export default function ScrollReveal({
   className,
   index = 0,
   delayStep = 0.08,
+  offsetY = 24,
 }: ScrollRevealProps) {
-  const motionProps = useScrollReveal({ index, delayStep })
+  const ref = useScrollReveal({ index, delayStep, offsetY })
 
   return (
-    <motion.div
-      className={cn(className)}
-      {...motionProps}
+    <div
+      ref={ref}
+      className={cn('scroll-reveal', className)}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }

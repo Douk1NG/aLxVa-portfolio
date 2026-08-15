@@ -49,6 +49,22 @@
   line-height: var(--line-height-overlay-title);
 }
 
+/* Scroll reveal — GPU-friendly opacity + transform (replaces framer-motion) */
+@utility scroll-reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-offset-y, 24px));
+  transition:
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+      var(--reveal-delay, 0s),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+      var(--reveal-delay, 0s);
+}
+
+@utility scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Glass Morphism - Frosted glass effect with backdrop blur (Requirements 3.5, 4.4) */
 @utility glass {
   background: hsl(
@@ -156,10 +172,8 @@
   transition: background-position var(--duration-slow)
     var(--ease-smooth);
 
-  /* Performance optimization (Requirement 4.4) */
-  will-change: background-position;
-
   &:hover {
+    will-change: background-position;
     background-position:
       0 0,
       100% 100%;

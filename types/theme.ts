@@ -11,7 +11,6 @@ export type PortfolioTheme = {
 }
 
 export type ThemeContextType = {
-  themeId: PortfolioThemeId
   themes: PortfolioTheme[]
   setTheme: (id: PortfolioThemeId) => void
   nextTheme: () => void

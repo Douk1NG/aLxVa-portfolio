@@ -15,7 +15,7 @@ export function SkillTag({
     <Badge
       variant="outline"
       className={cn(
-        'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border border-border/50 bg-card/50 md:backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5 hover:shadow-sm',
+        'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border border-border/50 bg-card/70 transition-[border-color,background-color,transform,box-shadow] duration-300 hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5 hover:shadow-sm',
         className,
       )}
     >

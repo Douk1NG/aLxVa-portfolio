@@ -3,14 +3,17 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useMemo,
+  useSyncExternalStore,
 } from 'react'
-import {
-  DEFAULT_THEME_ID,
-  getNextThemeId,
-  PORTFOLIO_THEMES,
-} from '@/data/portfolio-themes'
+import { PORTFOLIO_THEMES } from '@/data/portfolio-themes'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import {
+  advanceThemeId,
+  getThemeId,
+  setThemeId,
+  subscribeToTheme,
+} from '@/lib/theme-store'
 import {
   PortfolioThemeId,
   THEME_ROTATION_MS,
@@ -21,28 +24,18 @@ export const ThemeContext = createContext<
   ThemeContextType | undefined
 >(undefined)
 
-function applyThemeToDocument(themeId: PortfolioThemeId) {
-  document.documentElement.dataset.theme = themeId
+export function useThemeId(): PortfolioThemeId {
+  return useSyncExternalStore(
+    subscribeToTheme,
+    getThemeId,
+    getThemeId,
+  )
 }
 
-export function useThemeProvider(): ThemeContextType {
-  const [themeId, setThemeIdState] =
-    useState<PortfolioThemeId>(DEFAULT_THEME_ID)
+export function useThemeRotation() {
   const prefersReducedMotion = useMediaQuery(
     '(prefers-reduced-motion: reduce)',
   )
-
-  const setTheme = useCallback((id: PortfolioThemeId) => {
-    setThemeIdState(id)
-  }, [])
-
-  const nextTheme = useCallback(() => {
-    setThemeIdState((current) => getNextThemeId(current))
-  }, [])
-
-  useEffect(() => {
-    applyThemeToDocument(themeId)
-  }, [themeId])
 
   useEffect(() => {
     if (prefersReducedMotion) return
@@ -52,11 +45,10 @@ export function useThemeProvider(): ThemeContextType {
       | undefined
 
     const startRotation = () => {
-      intervalId = setInterval(() => {
-        setThemeIdState((current) =>
-          getNextThemeId(current),
-        )
-      }, THEME_ROTATION_MS)
+      intervalId = setInterval(
+        advanceThemeId,
+        THEME_ROTATION_MS,
+      )
     }
 
     const stopRotation = () => {
@@ -84,14 +76,26 @@ export function useThemeProvider(): ThemeContextType {
         handleVisibilityChange,
       )
     }
-  }, [prefersReducedMotion, themeId])
+  }, [prefersReducedMotion])
+}
 
-  return {
-    themeId,
-    themes: PORTFOLIO_THEMES,
-    setTheme,
-    nextTheme,
-  }
+export function useThemeProvider(): ThemeContextType {
+  const setTheme = useCallback((id: PortfolioThemeId) => {
+    setThemeId(id)
+  }, [])
+
+  const nextTheme = useCallback(() => {
+    advanceThemeId()
+  }, [])
+
+  return useMemo(
+    () => ({
+      themes: PORTFOLIO_THEMES,
+      setTheme,
+      nextTheme,
+    }),
+    [setTheme, nextTheme],
+  )
 }
 
 export function useThemeContext(): ThemeContextType {

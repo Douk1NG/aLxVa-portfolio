@@ -1,9 +1,11 @@
 import {
   Children,
-  isValidElement,
+  Suspense,
   cloneElement,
+  isValidElement,
+  lazy,
+  useMemo,
 } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
 import {
   ExpandableCardGridProps,
   ExpandableCardProps,
@@ -12,7 +14,12 @@ import { useExpandableGrid } from '@/hooks/useExpandableGrid'
 import { useDesktopLayout } from '@/hooks/useDesktopLayout'
 import { cn } from '@/lib/utils'
 import { ExpandableContext } from './ExpandableContext'
-import { ExpandableOverlay } from './ExpandableOverlay'
+
+const ExpandableOverlay = lazy(() =>
+  import('./ExpandableOverlay').then((module) => ({
+    default: module.ExpandableOverlay,
+  })),
+)
 
 export function ExpandableCardGrid({
   children,
@@ -24,14 +31,16 @@ export function ExpandableCardGrid({
     closeExpanded,
     isMobile,
   } = useExpandableGrid()
-  const prefersReducedMotion = useReducedMotion()
   const isDesktopLayout = useDesktopLayout()
   const childrenArray = Children.toArray(children)
 
+  const contextValue = useMemo(
+    () => ({ expandedIndex, setExpandedIndex, isMobile }),
+    [expandedIndex, setExpandedIndex, isMobile],
+  )
+
   return (
-    <ExpandableContext.Provider
-      value={{ expandedIndex, setExpandedIndex, isMobile }}
-    >
+    <ExpandableContext.Provider value={contextValue}>
       <div
         className={cn(
           'relative min-h-0',
@@ -58,39 +67,25 @@ export function ExpandableCardGrid({
                 : child
 
             return (
-              <motion.div
+              <div
                 key={index}
                 className={cn(
                   isDesktopLayout && 'h-full min-h-0',
                 )}
-                initial={
-                  prefersReducedMotion
-                    ? false
-                    : { opacity: 0, y: 16 }
-                }
-                whileInView={
-                  prefersReducedMotion
-                    ? undefined
-                    : { opacity: 1, y: 0 }
-                }
-                viewport={{ once: true, margin: '-5%' }}
-                transition={{
-                  duration: 0.45,
-                  delay: index * 0.06,
-                  ease: [0.4, 0, 0.2, 1],
-                }}
               >
                 {card}
-              </motion.div>
+              </div>
             )
           })}
         </div>
 
         {!isMobile && expandedIndex !== null && (
-          <ExpandableOverlay
-            childrenArray={childrenArray}
-            closeExpanded={closeExpanded}
-          />
+          <Suspense fallback={null}>
+            <ExpandableOverlay
+              childrenArray={childrenArray}
+              closeExpanded={closeExpanded}
+            />
+          </Suspense>
         )}
       </div>
     </ExpandableContext.Provider>

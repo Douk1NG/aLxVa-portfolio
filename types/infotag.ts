@@ -1,9 +1,9 @@
 import type { SvgIcon } from './svgIcons'
-import type { IconName } from 'lucide-react/dynamic'
+import type { LucideIconName } from './lucide-icon'
 import type { Language } from './language'
 
 export type IconType = {
-  icon?: IconName
+  icon?: LucideIconName
   svg?: SvgIcon
 }
 

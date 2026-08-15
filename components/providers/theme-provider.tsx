@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import {
   ThemeContext,
   useThemeProvider,
+  useThemeRotation,
 } from '@/hooks/useTheme'
 
 export type ThemeProviderProps = {
@@ -11,6 +12,7 @@ export type ThemeProviderProps = {
 export function ThemeProvider({
   children,
 }: ThemeProviderProps) {
+  useThemeRotation()
   const contextValue = useThemeProvider()
 
   return (

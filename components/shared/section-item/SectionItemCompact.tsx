@@ -13,7 +13,7 @@ export function SectionItemCompact({
   detailsLabel = 'Details',
 }: SectionItemCompactProps) {
   return (
-    <div className="hover:cursor-pointer p-5 sm:p-6 rounded-2xl border border-border/70 bg-card/65 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 h-full flex flex-col gap-3 group-hover:shadow-lg relative overflow-hidden group/compact min-h-0 glow-hover">
+    <div className="hover:cursor-pointer p-5 sm:p-6 rounded-2xl border border-border/70 bg-card/80 hover:border-primary/50 transition-[border-color,box-shadow,transform] duration-300 h-full flex flex-col gap-3 group-hover:shadow-lg relative overflow-hidden group/compact min-h-0 glow-hover">
       <div
         className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent opacity-0 group-hover/compact:opacity-100 transition-opacity duration-300 pointer-events-none"
         aria-hidden="true"
