@@ -12,7 +12,6 @@ export default function ExperienceSection() {
           icon={Briefcase}
           titleKey="experience.title"
           id="experience-heading"
-          iconClassName="drop-shadow-[0_0_8px_rgba(var(--primary),0.5)]"
         />
       }
     >

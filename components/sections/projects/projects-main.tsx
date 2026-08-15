@@ -18,8 +18,11 @@ export default function ProjectsMain() {
         <ExpandableCard
           key={index}
           compact={
-            <SectionItemCompact title={t(project.title)}>
-              <p className="text-sm text-muted-foreground line-clamp-2">
+            <SectionItemCompact
+              title={t(project.title)}
+              detailsLabel={t('projects.details')}
+            >
+              <p className="text-sm text-foreground/75 line-clamp-3">
                 {t(project.key_description)}
               </p>
             </SectionItemCompact>

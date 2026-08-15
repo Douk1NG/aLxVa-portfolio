@@ -17,13 +17,16 @@ export function SectionLayout({
   return (
     <section
       className={cn(
-        'glass-gradient section-padding-responsive rounded-3xl flex flex-col h-full',
+        'glass-gradient section-padding-responsive rounded-3xl flex flex-col',
+        'h-auto lg:h-full lg:min-h-0 lg:flex-1',
         className,
       )}
       aria-labelledby={id}
     >
       {header}
-      {children}
+      <div className="flex flex-col lg:flex-1 lg:min-h-0">
+        {children}
+      </div>
     </section>
   )
 }

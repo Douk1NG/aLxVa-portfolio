@@ -1,0 +1,225 @@
+@layer base {
+  /*
+   * Portfolio theme layers — override via data-theme on <html>.
+   * Add a third theme by duplicating a block and registering it in data/portfolio-themes.ts
+   */
+
+  :root,
+  [data-theme='charred-oxblood'] {
+    --background-deep: 120 6% 4%;
+    --background-base: 120 14% 11%;
+    --background-elevated: 98 22% 16%;
+
+    --primary-cyan: 68 52% 46%;
+    --primary-teal: 98 34% 28%;
+    --primary-purple: 36 32% 68%;
+    --primary-pink: 30 12% 94%;
+    --primary-orange: 68 78% 58%;
+
+    --foreground-primary: 30 10% 96%;
+    --foreground-secondary: 36 22% 82%;
+    --foreground-muted: 36 18% 70%;
+
+    --theme-border: 98 28% 34%;
+    --theme-muted: 98 28% 20%;
+    --theme-secondary: 98 28% 22%;
+    --theme-bg-fallback: #070807;
+
+    --gradient-theme-base: linear-gradient(
+      184deg,
+      #e7e3e2 0%,
+      #bba784 9%,
+      #9ca83e 48%,
+      #3a5229 54%,
+      #141c14 87%,
+      #070807 100%
+    );
+    --gradient-theme-texture:
+      radial-gradient(
+        circle at 25% 25%,
+        rgba(193, 211, 54, 0.25) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(228, 220, 211, 0.21) 1px,
+        transparent 1px
+      );
+    --gradient-theme-texture-opacity: 0.354;
+    --gradient-theme-texture-filter: blur(0px);
+    --gradient-theme-texture-inset: 0;
+    --gradient-theme-highlights:
+      radial-gradient(
+        ellipse at 45% 7%,
+        rgba(255, 255, 255, 0.3),
+        transparent 38%
+      ),
+      radial-gradient(
+        ellipse at 45% 37%,
+        rgba(193, 211, 54, 0.2),
+        transparent 42%
+      );
+    --gradient-theme-vignette:
+      radial-gradient(
+        circle at center,
+        transparent 30%,
+        rgba(0, 0, 0, 0.12) 55%,
+        rgba(0, 0, 0, 0.82) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
+
+    --gradient-panel-radial: hsl(98 34% 28% / 0.72);
+    --gradient-panel-deep: hsl(120 14% 11% / 0.88);
+  }
+
+  [data-theme='deep-plum'] {
+    --background-deep: 240 8% 3%;
+    --background-base: 252 22% 14%;
+    --background-elevated: 260 28% 20%;
+
+    --primary-cyan: 278 62% 58%;
+    --primary-teal: 260 38% 32%;
+    --primary-purple: 290 48% 74%;
+    --primary-pink: 300 18% 94%;
+    --primary-orange: 278 72% 62%;
+
+    --foreground-primary: 300 14% 96%;
+    --foreground-secondary: 290 20% 84%;
+    --foreground-muted: 285 16% 72%;
+
+    --theme-border: 270 26% 38%;
+    --theme-muted: 260 24% 22%;
+    --theme-secondary: 265 26% 24%;
+    --theme-bg-fallback: #040505;
+
+    --gradient-theme-base: linear-gradient(
+      194deg,
+      #e7e2e5 0%,
+      #cfa0cd 13%,
+      #702f9c 46%,
+      #352d64 57%,
+      #14161d 90%,
+      #040505 100%
+    );
+    --gradient-theme-texture:
+      linear-gradient(
+        91deg,
+        rgba(149, 45, 220, 0.3) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        211deg,
+        rgba(229, 210, 226, 0.2) 0%,
+        transparent 50%
+      );
+    --gradient-theme-texture-opacity: 0.28;
+    --gradient-theme-texture-filter: blur(12px);
+    --gradient-theme-texture-inset: 0;
+    --gradient-theme-highlights:
+      radial-gradient(
+        ellipse at 39% 2%,
+        rgba(255, 255, 255, 0.22),
+        transparent 38%
+      ),
+      radial-gradient(
+        ellipse at 40% 36%,
+        rgba(149, 45, 220, 0.21),
+        transparent 42%
+      );
+    --gradient-theme-vignette:
+      radial-gradient(
+        circle at center,
+        transparent 25%,
+        rgba(0, 0, 0, 0.16) 58%,
+        rgba(0, 0, 0, 0.87) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 45%,
+        rgba(0, 0, 0, 0.83) 100%
+      );
+
+    --gradient-panel-radial: hsl(278 45% 38% / 0.55);
+    --gradient-panel-deep: hsl(252 22% 14% / 0.9);
+  }
+
+  [data-theme='burnt-steel'] {
+    --background-deep: 160 6% 3%;
+    --background-base: 155 16% 12%;
+    --background-elevated: 165 20% 16%;
+
+    --primary-cyan: 187 42% 42%;
+    --primary-teal: 165 30% 20%;
+    --primary-purple: 210 22% 58%;
+    --primary-pink: 220 8% 92%;
+    --primary-orange: 192 62% 52%;
+
+    --foreground-primary: 220 12% 96%;
+    --foreground-secondary: 210 18% 82%;
+    --foreground-muted: 205 14% 70%;
+
+    --theme-border: 175 22% 32%;
+    --theme-muted: 165 20% 20%;
+    --theme-secondary: 165 22% 22%;
+    --theme-bg-fallback: #030303;
+
+    --gradient-theme-base: linear-gradient(
+      197deg,
+      #dfdfe3 0%,
+      #809ab3 14%,
+      #418f99 47%,
+      #24423a 54%,
+      #1e2821 87%,
+      #030303 100%
+    );
+    --gradient-theme-texture:
+      radial-gradient(
+        circle at 25% 15%,
+        rgba(212, 218, 227, 0.14),
+        transparent 22%
+      ),
+      radial-gradient(
+        circle at 33% 59%,
+        rgba(61, 189, 204, 0.31),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 45% 55%,
+        rgba(30, 40, 33, 0.42),
+        transparent 34%
+      );
+    --gradient-theme-texture-opacity: 0.64;
+    --gradient-theme-texture-filter: blur(70px);
+    --gradient-theme-texture-inset: -20%;
+    --gradient-theme-highlights:
+      radial-gradient(
+        ellipse at 45% 1%,
+        rgba(255, 255, 255, 0.2),
+        transparent 38%
+      ),
+      radial-gradient(
+        ellipse at 43% 32%,
+        rgba(61, 189, 204, 0.3),
+        transparent 42%
+      );
+    --gradient-theme-vignette:
+      radial-gradient(
+        circle at center,
+        transparent 25%,
+        rgba(0, 0, 0, 0.2) 58%,
+        rgba(0, 0, 0, 0.91) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 45%,
+        rgba(0, 0, 0, 0.75) 100%
+      );
+
+    --gradient-panel-radial: hsl(187 42% 42% / 0.45);
+    --gradient-panel-deep: hsl(155 16% 12% / 0.9);
+  }
+}

@@ -24,17 +24,26 @@ export default function ExperienceMain() {
         <ExpandableCard
           key={index}
           compact={
-            <SectionItemCompact title={t(experience.title)}>
-              <div className="flex gap-3">
-                <div className="flex items-center gap-1.5">
-                  <Building2 className="size-3 text-primary/70" />
-                  <span className="truncate">
+            <SectionItemCompact
+              title={t(experience.title)}
+              detailsLabel={t('experience.details')}
+            >
+              <div className="flex flex-col gap-2 text-sm text-foreground/75">
+                <div className="flex items-start gap-1.5 min-w-0">
+                  <Building2
+                    className="size-3 text-primary/70 shrink-0 mt-0.5"
+                    aria-hidden="true"
+                  />
+                  <span className="break-words leading-snug">
                     {experience.company}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-1.5">
-                  <Clock className="size-3" />
+                  <Clock
+                    className="size-3 shrink-0"
+                    aria-hidden="true"
+                  />
                   <span>
                     {t(experience.duration.short)}
                   </span>

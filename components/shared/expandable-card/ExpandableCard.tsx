@@ -22,7 +22,7 @@ export function ExpandableCard({
       onClick={() =>
         _index !== undefined && setExpandedIndex(_index)
       }
-      className="text-left w-full h-full transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-xl group"
+      className="text-left w-full h-full min-h-0 transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-xl group"
     >
       {compact}
     </button>

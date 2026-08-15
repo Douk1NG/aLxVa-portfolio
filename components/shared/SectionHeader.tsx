@@ -18,18 +18,18 @@ export function SectionHeader({
   const { t } = useLanguageSwitcher()
 
   return (
-    <header className="flex items-center justify-between mb-4">
-      <div className="flex items-center gap-2">
+    <header className="mb-4 flex items-center justify-between border-b border-border/50 pb-3">
+      <div className="flex items-center gap-2.5">
         <Icon
           className={cn(
-            'h-5 w-5 text-primary',
+            'size-5 text-primary',
             iconClassName,
           )}
           aria-hidden="true"
         />
         <h2
           id={id}
-          className="text-xl font-bold tracking-tight text-gradient"
+          className="font-display text-h2 font-semibold tracking-tight text-foreground"
         >
           {t(titleKey)}
         </h2>

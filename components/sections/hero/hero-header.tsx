@@ -1,17 +1,18 @@
 import PillLanguageSwitcher from '@/components/shared/PillLanguageSwitcher'
+import ThemeIndicator from '@/components/shared/ThemeIndicator'
 
 export default function HeroHeader() {
   return (
-    <div className="flex flex-col items-center justify-between">
-      <div
-        className="flex items-center gap-4"
-        aria-label="Language controls"
-      >
-        <PillLanguageSwitcher />
+    <div className="flex w-full min-w-0 flex-col items-center justify-between gap-4">
+      <div className="flex w-full min-w-0 flex-wrap items-center justify-center gap-3 lg:justify-between">
+        <ThemeIndicator />
+        <div aria-label="Language controls">
+          <PillLanguageSwitcher />
+        </div>
       </div>
       <time
-        className="text-sm opacity-50 block mt-4"
-        dateTime="2025"
+        className="font-mono text-small mt-1 block tracking-widest uppercase opacity-40"
+        dateTime="2026"
       >
         ♫⋆｡♪ ₊˚♬ ﾟ. / 2026
       </time>

@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { MotionProvider } from '@/components/providers/motion-provider'
 import { LanguageProvider } from '@/components/providers/language-provider'
+import { ThemeProvider } from '@/components/providers/theme-provider'
 import Main from '@/components/main'
 import './app/globals.css'
 
@@ -13,10 +14,12 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <MotionProvider>
-      <LanguageProvider>
-        <Main />
-      </LanguageProvider>
-    </MotionProvider>
+    <ThemeProvider>
+      <MotionProvider>
+        <LanguageProvider>
+          <Main />
+        </LanguageProvider>
+      </MotionProvider>
+    </ThemeProvider>
   </StrictMode>,
 )

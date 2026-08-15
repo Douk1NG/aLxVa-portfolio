@@ -1,4 +1,12 @@
 /* Fluid Typography Utilities (Requirements 2.5, 4.1, 4.2, 4.3, 4.4) */
+@utility font-display {
+  font-family:
+    'Syne',
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
 @utility text-display {
   font-size: var(--text-display);
   line-height: var(--line-height-display);
@@ -31,65 +39,67 @@
   line-height: var(--line-height-small);
 }
 
+@utility text-card-title {
+  font-size: var(--text-card-title);
+  line-height: var(--line-height-card-title);
+}
+
+@utility text-overlay-title {
+  font-size: var(--text-overlay-title);
+  line-height: var(--line-height-overlay-title);
+}
+
 /* Glass Morphism - Frosted glass effect with backdrop blur (Requirements 3.5, 4.4) */
 @utility glass {
   background: hsl(
-    var(--background-elevated, 220 10% 8%) / 0.15
+    var(--background-elevated, 98 22% 16%) / 0.55
   );
 
-  /* Optimize backdrop-filter for larger screens only (Requirement 4.4) */
   @media (min-width: 768px) {
     @supports (backdrop-filter: blur(12px)) or
       (-webkit-backdrop-filter: blur(12px)) {
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      /* Safari support */
     }
   }
 
-  /* Gradient border with subtle glow */
-  border: 1px solid transparent;
+  border: 1px solid
+    hsl(var(--primary-orange, 68 78% 58%) / 0.22);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
-  /* Subtle glow effect */
   box-shadow:
-    0 0 20px hsl(var(--primary-cyan, 185 95% 50%) / 0.1),
-    inset 0 1px 1px hsl(255 255 255 / 0.1);
+    0 0 24px hsl(var(--primary-orange, 68 78% 58%) / 0.14),
+    inset 0 1px 1px hsl(30 12% 94% / 0.12);
 }
 
-/* Glass with gradient background - combines glass effect with gradient */
 @utility glass-gradient {
-  /* Optimize backdrop-filter for larger screens only (Requirement 4.4) */
   @media (min-width: 768px) {
     @supports (backdrop-filter: blur(12px)) or
       (-webkit-backdrop-filter: blur(12px)) {
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      /* Safari support */
     }
   }
 
-  /* Gradient border with subtle glow on larger screens */
   @media (min-width: 640px) {
-    border: 1px solid;
+    border: 1px solid
+      hsl(var(--primary-orange, 68 78% 58%) / 0.24);
   }
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
-  /* Radial dark gradient */
   background:
     radial-gradient(
       circle at 50% 0%,
-      hsl(220 20% 10%) 0%,
-      hsl(220 15% 4%) 50%
+      var(--gradient-panel-radial) 0%,
+      var(--gradient-panel-deep) 55%
     ),
-    hsl(var(--background-elevated, 220 10% 8%) / 0.15);
+    hsl(var(--background-elevated) / 0.62);
 
-  /* Cyan glow effect */
   box-shadow:
-    0 0 20px hsl(var(--primary-cyan, 185 95% 50%) / 0.1),
-    inset 0 1px 1px hsl(255 255 255 / 0.1);
+    0 0 28px hsl(var(--primary-orange, 68 78% 58%) / 0.16),
+    inset 0 1px 1px hsl(30 12% 94% / 0.14);
 }
 
 /* Gradient Text - Premium gradient text effect for headings (Requirements 3.6, 4.3, 6.4) */
@@ -131,8 +141,8 @@
   border: 2px solid transparent;
   background-image:
     linear-gradient(
-      hsl(var(--background-elevated, 220 10% 8%)),
-      hsl(var(--background-elevated, 220 10% 8%))
+      hsl(var(--background-elevated, 98 20% 12%)),
+      hsl(var(--background-elevated, 98 20% 12%))
     ),
     var(--gradient-border);
   background-origin: border-box;
@@ -163,7 +173,7 @@
   scrollbar-width: thin;
 
   scrollbar-color: hsl(
-      var(--primary-cyan, 185 95% 50%) / 0.4
+      var(--primary-cyan, 68 47% 39%) / 0.4
     )
     transparent;
 
@@ -180,9 +190,9 @@
   &::-webkit-scrollbar-thumb {
     background: linear-gradient(
       180deg,
-      hsl(var(--primary-cyan, 185 95% 50%)) 0%,
-      hsl(var(--primary-purple, 270 85% 65%)) 50%,
-      hsl(var(--primary-pink, 330 85% 65%)) 100%
+      hsl(var(--primary-orange, 68 64% 52%)) 0%,
+      hsl(var(--primary-cyan, 68 47% 39%)) 50%,
+      hsl(var(--primary-teal, 98 31% 24%)) 100%
     );
     border-radius: 10px;
     /* Rounded ends */
@@ -228,6 +238,11 @@
     padding: 1.25rem;
     padding: clamp(1rem, 2vh, 1.5rem);
   }
+
+  /* Laptop: tighter inner padding so panels use more width */
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    padding: clamp(0.75rem, 1.1vw, 1rem);
+  }
 }
 
 /* Responsive Card Padding (Requirement 2.4) */
@@ -263,9 +278,9 @@
 
   /* Cyan ring matching theme */
   &:focus-visible {
-    outline: 2px solid hsl(var(--primary-cyan, 185 95% 50%));
+    outline: 2px solid hsl(var(--primary-cyan, 68 47% 39%));
     outline-offset: 2px;
     box-shadow: 0 0 0 4px
-      hsl(var(--primary-cyan, 185 95% 50%) / 0.3);
+      hsl(var(--primary-cyan, 68 47% 39%) / 0.3);
   }
 }

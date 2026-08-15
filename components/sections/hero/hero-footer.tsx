@@ -9,7 +9,7 @@ function Tag({
   children,
 }: IconType & { children: React.ReactNode }) {
   return (
-    <span className="flex gap-2 items-center glass px-4 py-2 rounded-full text-xs font-medium tracking-wide transition-all duration-300 hover:bg-primary/10 hover:border-primary/30">
+    <span className="flex gap-2 items-center glass px-4 py-2 rounded-full text-small font-medium tracking-wide transition-all duration-300 hover:bg-primary/10 hover:border-primary/30">
       <Icon
         icon={icon}
         svg={svg}
@@ -37,7 +37,7 @@ export default function HeroFooter() {
   }
 
   return (
-    <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+    <div className="flex flex-wrap gap-3 justify-center lg:justify-start w-full min-w-0">
       {infoTags.map(
         ({ icon, svg, href, hrefByLanguage, titleKey }) => {
           const content = (

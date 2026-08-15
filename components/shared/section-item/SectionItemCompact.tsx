@@ -4,27 +4,37 @@ import { ReactNode } from 'react'
 type SectionItemCompactProps = {
   title: string
   children: ReactNode
+  detailsLabel?: string
 }
 
 export function SectionItemCompact({
   title,
   children,
+  detailsLabel = 'Details',
 }: SectionItemCompactProps) {
   return (
-    <div className="hover:cursor-pointer p-6 md:p-8 rounded-2xl border border-border bg-card hover:border-primary/40 transition-all duration-300 h-full flex flex-col gap-4 group-hover:shadow-lg relative overflow-hidden group/compact min-h-45 shadow-xl">
-      <h3 className="font-bold text-base md:text-lg text-foreground line-clamp-2 group-hover/compact:text-primary transition-colors pr-4 leading-tight">
+    <div className="hover:cursor-pointer p-5 sm:p-6 rounded-2xl border border-border/70 bg-card/65 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 h-full flex flex-col gap-3 group-hover:shadow-lg relative overflow-hidden group/compact min-h-0 glow-hover">
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent opacity-0 group-hover/compact:opacity-100 transition-opacity duration-300 pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <h3 className="font-display font-bold text-card-title text-foreground group-hover/compact:text-primary transition-colors leading-snug relative shrink-0 line-clamp-2 text-pretty">
         {title}
       </h3>
 
-      {children}
+      <div className="relative flex-1 min-h-0 min-w-0 text-muted-foreground">
+        {children}
+      </div>
 
-      <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-primary/5 px-3 py-1.5 rounded-lg border border-primary/10 shadow-sm group-hover/compact:bg-primary/20 group-hover/compact:border-primary/30 transition-all duration-300">
-        <span className="text-[10px] font-black text-primary/70 group-hover/compact:text-primary uppercase tracking-wider">
-          Details
+      <div className="relative flex items-center justify-end gap-2 shrink-0 pt-1">
+        <span className="text-[10px] font-black text-primary uppercase tracking-wider">
+          {detailsLabel}
         </span>
-        <div className="relative">
-          <MousePointerClick className="size-4 text-primary animate-pulse" />
-        </div>
+        <MousePointerClick
+          className="size-4 text-primary"
+          aria-hidden="true"
+        />
       </div>
     </div>
   )
